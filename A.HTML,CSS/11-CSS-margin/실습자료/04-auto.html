@@ -6,11 +6,27 @@
         <title>CSS Example</title>
 
         <style type="text/css">
+            div#parent {
+                background-color: #ff0000;
+                width: 800px;
+                height: 500px;
+                border: 5px solid #0000ff;
+                margin: 50px auto;
+            }
 
+            div#child {
+                background-color: #00ff00;
+                padding: 10px;
+                border: 5px solid #ff00ff;
+                width: 500px;
+                margin: 50px auto;
+            }
         </style>
     </head>
 
     <body>
-        
+        <div id="parent">
+            <div id="child">박스2</div>
+        </div>
     </body>
 </html>
