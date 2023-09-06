@@ -1,0 +1,27 @@
+* {
+    font-family: 'Noto Sans KR', sans-serif;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+}
+
+.header .jumbotron {
+    padding: 80px;
+    text-align: center;
+    background: #1abc9c;
+    color: white;
+}
+
+.header .jumbotron h1 {
+    font-size: 40px;
+}
+
+.navbar {
+    overflow: hidden;
+    background-color: #333;
+    position: sticky;
+    top: 20;
+}
+
