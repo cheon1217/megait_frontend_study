@@ -6,11 +6,27 @@
         <title>gradient</title>
 
         <style type="text/css">
+            .grad1 {
+                width: 150px;
+                height: 150px;
+                background: -webkit-gradient(linear, left top, left bottom, from(#06f), to(#fff));
+                background: -moz-linear-gradient(top, #06f, #fff);
+            }
             
+            .grad2 {
+                width: 150px;
+                height: 150px;
+                background: -webkit-gradient(linear, left bottom, right top, from(#06f), to(#fff));
+                background: -moz-linear-gradient(bottom 45deg, #06f, #fff);
+            }
         </style>
     </head>
 
     <body>
-        
+        <h1>선형 그라데이션</h1>
+        <p>색상만 지정했을 때</p>
+        <div class="grad1"></div>
+        <p>방향을 지정했을 때</p>
+        <div class="grad2"></div>
     </body>
 </html>
