@@ -6,11 +6,45 @@
         <title>Document</title>
 
         <style>
+            .list_fixed {
+                height: 60px;
+                padding: 10px;
+                border: 1px solid rgba(0, 0, 0, 0.1);
+            }
 
+            .title_wrap {
+                display: flex;
+                max-width: 100%;
+                height: 100%;
+                align-items: center;
+            }
+
+            .title_wrap .title {
+                padding-top: 3px;
+                font-size: 18px;
+                white-space: nowrap;
+                overflow: hidden;
+                text-overflow: ellipsis;
+            }
+
+            .sp_icon {
+                display: block;
+                margin-left: 4px;
+                padding: 5px;
+                border: 1px solid #f60;
+                background-color: #d5d5d5;    
+            }
         </style>
     </head>
 
     <body>
-        
+        <div class="list_fixed">
+            <div class="title_wrap">
+                <h3 class="title">This is very~~~ very~~~ long text. This is very~~~ very~~~ long text.</h3>
+                <span class="sp_icon">icon</span>
+                <span class="sp_icon">icon</span>
+                <span class="sp_icon">icon</span>
+            </div>
+        </div>
     </body>
 </html>
