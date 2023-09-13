@@ -93,3 +93,13 @@ body {
     text-align: center;
     background: #ddd;
 }
+
+@media (max-width: 768px) {
+    .content {
+        flex-direction: column-reverse;
+    }
+
+    .content .side {
+        width: 100%;
+    }
+}
