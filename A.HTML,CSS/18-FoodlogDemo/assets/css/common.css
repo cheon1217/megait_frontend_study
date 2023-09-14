@@ -1,0 +1,155 @@
+/** 모든 페이지에서 사용될 공통적인 내용을 정의 */
+
+/* --------------------------------------------
+ * 공통
+ * --------------------------------------------*/
+
+* {
+    font-family: "Noto Sans KR";
+    box-sizing: border-box;
+}
+
+a {
+    text-decoration: none;
+    color: #000;
+}
+
+/* header, main, footer 영역 안에서 내용의 넓이를 제한하는 박스 */
+.content-container {
+    max-width: 1200px;
+    margin: auto;
+}
+
+/* --------------------------------------------
+ * 상단 영역
+ * --------------------------------------------*/
+.header {
+    /* background-color: #f062; */
+
+    
+    /* 그림자 */
+    box-shadow: 0 1px 3px #0002;
+    
+    /* 상단 고정 */
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    z-index: 9000;
+
+    /* 다른 영역 위에 떠 있으므로 아래족에 스크롤되는 내요을 가리기 위해 배경색상 흰색 처리 */
+    background-color: #fff;
+}
+
+/* 상단 영역 내의 컨테이너에 속한 아이템들의 배치 구성 */
+.header .content-container {
+    display: flex;
+    justify-content: space-between;
+}
+
+/* 양쪽의 아이콘 버튼 공통 속성 */
+.header .icon-button {
+    font-size: 24px;
+    font-weight: 900;
+    padding: 16px;
+}
+
+.header .icon-button:hover {
+    background-color: #dddddd;
+    color: #ffffff;
+}
+
+/* 사이트 제목 */
+.header .logo {
+    font-size: 26px;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+}
+
+ /* --------------------------------------------
+ * 내용 영역
+ * --------------------------------------------*/
+.main {
+    background-color: #0001;
+
+    /* 상단바에 가려지는 만큼 여백을 확보한다 */
+    padding-top: 57px;
+ }
+
+ /* --------------------------------------------
+ * 하단 영역
+ * --------------------------------------------*/
+.footer {
+    /*background-color: #06f;*/
+    border-top: 1px solid #dddddd;
+ }
+
+.footer .content-container {
+    display: flex;
+ }
+
+.footer .content-container .footer-item {
+    /* 각 영역이 공간을 동일한 비율로 나누어 갖도록 설정 */
+    flex: 1;
+    padding: 15px;
+ }
+
+.footer .content-container .footer-item h3 {
+    font-size: 24px;
+    font-weight: 700px;
+    margin: 22px 0;
+
+    /* 영어 대문자 변환  */
+    /* 소문자 : lowercase  대문자 : uppercase */
+    text-transform: uppercase;
+ }
+
+.footer .content-container .footer-item:nth-child(1) p {
+    font-size: 15px;
+    line-height: 150%;
+    font-weight: 300;
+ }
+
+.footer .content-container .footer-item:nth-child(2) a {
+    display: flex;
+    margin: 20px 0;
+    padding: 0 10px;
+}
+
+.footer .content-container .footer-item:nth-child(2) a img {
+    width: 65px;
+    height: 65px;
+    object-fit: cover;
+    margin-right: 10px;
+}
+
+.footer .content-container .footer-item:nth-child(2) a .blog-post-title {
+    font-weight: bold;
+    margin-bottom: 5px;
+    font-size: 15px;
+}
+
+.footer .content-container .footer-item:nth-child(2) a .blog-post-content {
+    line-height: 1.2;
+}
+
+.footer .content-container .footer-item:nth-child(3) .tags li {
+    display: inline-block;
+    background-color: #616161;
+    color: #ffffff;
+    padding: 5px 10px;
+    margin-bottom: 8px;
+    font-size: 13px;
+}
+
+.footer .content-container .footer-item:nth-child(3) .tags li.black {
+    background-color: #000000;
+}
+
+@media only screen and (max-width: 768px) {
+    /* 모바일 해상도에서 세로 정렬 */
+    .footer .content-container {
+        flex-direction: column;
+    }
+}
