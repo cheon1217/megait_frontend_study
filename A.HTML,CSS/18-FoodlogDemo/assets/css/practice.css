@@ -1,0 +1,124 @@
+* {
+    font-family: 'Noto Sans KR';
+    box-sizing: border-box;
+}
+
+a {
+    text-decoration: none;
+    color: #000;
+}
+
+.content-container {
+    max-width: 1200px;
+    margin: auto;
+}
+
+.header {
+    background-color: #fff;
+
+    box-shadow: 0 1px 3px #0002;
+
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    z-index: 9000;
+}
+
+.header .content-container {
+    display: flex;
+    justify-content: space-between;
+}
+
+.header .icon-button {
+    font-size: 24px;
+    font-weight: 900;
+    padding: 16px;
+}
+
+.header .icon-button:hover {
+    background: #dddddd;
+    color: #ffffff;
+}
+
+.header .logo {
+    font-size: 26px;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+}
+
+.main {
+    background-color: #0001;
+
+    padding-top: 57px;
+}
+
+.footer {
+    border-top: 1px solid #dddddd;
+}
+
+.footer .content-container {
+    display: flex;
+}
+
+.footer .content-container .footer-item {
+    flex: 1;
+    padding: 15px;
+}
+
+.footer .content-container .footer-item h3 {
+    font-size: 24px;
+    font-weight: 700;
+    margin: 22px 0;
+    text-transform: uppercase;
+}
+
+.footer .content-container .footer-item:nth-child(1) p {
+    font-size: 15px;
+    line-height: 150%;
+    font-weight: 300;
+}
+
+.footer .content-container .footer-item:nth-child(2) a {
+    display: flex;
+    margin: 20px 0;
+    padding: 0 10px;
+}
+
+.footer .content-container .footer-item:nth-child(2) a img {
+    width: 65px;
+    height: 65px;
+    object-fit: cover;
+    margin-right: 10px;
+}
+
+.footer .content-container .footer-item:nth-child(2) a .blog-post-title {
+    font-weight: bold;
+    margin-bottom: 5px;
+    font-size: 15px;
+}
+
+.footer .content-container .footer-item:nth-child(2) a .blog-post-content {
+    line-height: 1.2;
+}
+
+.footer .content-container .footer-item:nth-child(3) .tags li {
+    display: inline-block;
+    background-color: #616161;
+    color: #ffffff;
+    padding: 5px 10px;
+    margin-bottom: 8px;
+    font-size: 13px;
+}
+
+.footer .content-container .footer-item:nth-child(3) .tags li.black {
+    background-color: #000000;
+}
+
+@media only screen and (max-width: 768px) {
+    .footer .content-container {
+        flex-direction: column;
+    }
+}
+ 
