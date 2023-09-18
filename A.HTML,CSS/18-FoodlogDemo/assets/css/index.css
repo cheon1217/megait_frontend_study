@@ -1,0 +1,148 @@
+/** 메인 페이지 전용 스타일 */
+
+/* ----------------------------------
+ * 음식 갤러리 영역
+ * ----------------------------------*/
+ .food-gallery {
+    display: flex;
+    flex-wrap: wrap;
+ }
+
+ .food-gallery .food-item {
+    flex: none;
+    width: 25%;
+    padding: 20px 10px;
+ }
+
+ .food-gallery .food-item a {
+    display: block;
+ }
+
+ /* 이미지를 감싸는 박스 */
+ .food-gallery .food-item a .img-wrapper {
+    width: 100%;
+    height: 360px;
+    /* 이미지가 이 박스를 벗어날 경우 잘라냄 */
+    overflow: hidden;
+ }
+
+ .food-gallery .food-item a .img-wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: all 0.3s ease-in-out;
+ }
+
+ .food-gallery .food-item a:hover .img-wrapper img {
+    transform: scale(1.1, 1.1);
+ }
+
+ .food-gallery .food-item a .food-content {
+    padding: 15px 10px;
+    text-align: center;
+ }
+
+ .food-gallery .food-item a .food-content h2 {
+    font-size: 22px;
+    margin-bottom: 12px;
+    line-height: 130%;
+ }
+
+ .food-gallery .food-item a .food-content p {
+    font-size: 16px;
+    font-weight: 300;
+    line-height: 120%;
+ }
+
+ @media only screen and (min-width: 600px) and (max-width: 767px) {
+    .food-gallery .food-item {
+        width: 50%;
+    }
+ }
+
+
+ @media only screen and (max-width: 599px) {
+    .food-gallery .food-item {
+        width: 100%;
+    }
+ }
+
+.pagenation {
+    display: flex;
+    justify-content: center;
+}
+
+.pagenation li {
+    width: 32px;
+    height: 32px;
+}
+
+.pagenation li a {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    font-size: 18px;
+    justify-content: center;
+    align-items: center;
+}
+
+.pagenation li.active {
+    background-color: #000000;
+}
+
+.pagenation li.active a {
+    color: #fff;
+}
+
+.pagenation li a:hover {
+    background-color: rgba(0, 0, 0, 0.2);
+}
+
+/* ----------------------------------
+* 중앙 구분선
+* ----------------------------------*/
+.divider {
+    margin: 60px 0;
+    width: auto;
+    border-top: 1px solid #ddd;
+    border-bottom: 0;
+}
+
+/* ----------------------------------
+ * 쉐프소개
+ * ----------------------------------*/
+ .profile-container {
+    text-align: center;
+ }
+
+ .profile-container h2 {
+    font-size: 32px;
+    margin-bottom: 32px;
+    font-weight: 400;
+ }
+
+ .profile-container img {
+    max-width: 100%;
+    height: auto;
+    margin-bottom: 26px;
+ }
+
+ .profile-container h3 {
+    font-size: 26px;
+    margin-bottom: 16px;
+    font-weight: 400;
+ }
+
+ .profile-container h4 {
+    font-size: 18px;
+    margin-bottom: 16px;
+    font-weight: 400;
+ }
+
+ .profile-container p {
+    font-size: 16px;
+    font-weight: 300;
+    line-height: 150%;
+    margin-bottom: 30px;
+    padding: 0 25px;
+ }
