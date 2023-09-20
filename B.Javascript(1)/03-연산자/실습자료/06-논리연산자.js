@@ -24,8 +24,52 @@ console.log(false || true);
 console.log(false || false);
 console.groupEnd();
 
+/** 4) or연산 여러 개 사용 */
+console.group("4) or연산 여러 개 사용");
+console.log(true || true || true);
+console.log(true || true || false);
+console.log(false || false || true);
+console.log(false || true || true);
+console.groupEnd();
+
 /** 5) 복합사용 */
 console.group("5) 복합사용")
 // AND가 OR보다 항상 우선한다.
 // t || t -> t
 console.log(true && true || true);
+//t || f -> t
+console.log(true && true || false);
+// f || t -> t
+console.log(false && false || true);
+// f || t -> t
+console.log(false && true || true);
+
+// t || t -> t
+console.log(true || true && true);
+// t || f -> t
+console.log(true || true && false);
+// f || f -> f
+console.log(false || false && true);
+// f || t -> t
+console.log(false || true && true);
+console.groupEnd();
+
+/** 6) not */
+console.group("6) not");
+let success = true;
+let fail = !success;
+console.log(fail);
+
+let k = 1;
+console.log(!k); // 숫자 1은 true에 대응되므로 not true -> false
+
+let l = 0;
+console.log(!l);
+
+let str1 = "Hello";
+console.log(!str1);  // 내용이 있는 문장은 true, not true -> false
+
+let str2 = "";
+console.log(!str2);
+console.groupEnd();
+
