@@ -28,10 +28,10 @@ while (true) {
 let sum = 0;
 
 for (let i = 1; i < 20; i++) {
-    if (i % 2 == 0 && i % 3 == 0) {
+    if (i % 2 == 0 || i % 3 == 0) {
         sum += i;
 
-        console.log("2또는 3의 배수 : " + i)
+        console.log("2 또는 3의 배수 : " + i)
     }
 }
 
@@ -58,10 +58,27 @@ for (let i = 0; i < 4; i++) {
 
     for (let j = i; j < i + 4; j++) {
         a += j;
+
+        a += " ";
     }
 
     console.log(a);
 
+}
+
+for (let i = 0; i < 4; i++) {
+
+    let str = "";
+
+    for (let j = 0; j < 4; j++){
+        str += i + j;
+
+        if (j+1 < 4) {
+            str += " ";
+        }
+    }
+
+    console.log(str);
 }
 
 /** 문제 6 */
