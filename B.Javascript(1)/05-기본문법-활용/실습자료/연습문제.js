@@ -52,9 +52,50 @@ for (let i = 1; i <= 6; i++) {
 console.log("경우의 수는 %d개 입니다.", cnt);
 
 /** 문제 5 */
+for (let i = 0; i < 4; i++) {
 
+    let a = "";
+
+    for (let j = i; j < i + 4; j++) {
+        a += j;
+    }
+
+    console.log(a);
+
+}
 
 /** 문제 6 */
+for (let i = 1; i <= 7; i++) {
 
+    let b = "";
+
+    for (let j = 1; j <= i; j++) {
+        b += j;
+    }
+
+    console.log(b);
+
+}
 
 /** 문제 7 */
+let num = 1;
+for (let i = 2; i < 10; i++) {
+
+    if (num == 1) {
+        if (i % 2 == 1) {
+            for (let j = 1; j < 10; j++) {
+                console.log("%d X %d = %d", i, j, i*j);
+            }
+        }
+    }
+
+    if (num == 2) {
+        if (i % 2 == 0) {
+            for (let j = 1; j < 10; j++) {
+                console.log("%d X %d = %d", i, j, i*j);
+            }
+        }
+    }
+    console.log();
+
+}
