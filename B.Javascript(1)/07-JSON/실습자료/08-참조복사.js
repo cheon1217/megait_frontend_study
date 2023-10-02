@@ -74,3 +74,12 @@ for (let key in addr) {
 
 console.log(addr);
 console.log(copy);
+
+// JS가 제공하는 기능 활용하기
+const copy2 = {};
+
+// addr을 copy2에 깊은 복사 수행하는 JS 내장기능
+// 복사될 copy2가 비어있는 json일 경우 복사.
+// copy2가 비어있지 않으면 누적
+Object.assign(copy2, addr);
+console.log(copy2);
