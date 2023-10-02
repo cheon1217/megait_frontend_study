@@ -156,10 +156,8 @@ let totalGold = 0;
 
 for (let i=0; i<item.length; i++) {
     let single_totalGold = 0;
-    for (let j=0; j<item[i].length; j++) {
-        totalGold += ((item[i][0] * 0.9) * item[i][1]);
-        single_totalGold += ((item[i][0] * 0.9) * item[i][1]);
-    }
+    totalGold += ((item[i][0] * 0.9) * item[i][1]);
+    single_totalGold += ((item[i][0] * 0.9) * item[i][1]);
     console.log("아이템 한개당 판매가격 : " + single_totalGold + "원");
 }
 
@@ -169,12 +167,36 @@ console.log("총 판매가격 : " + totalGold + "원");
 const name = ["재석", "민영", "종민", "광수", "승기", "새정"];
 const points = [82, 91, 54, 62, 88, 90];
 
-max = points[0];
+for (let i=0; i<points.length - 1; i++) {
+    for (let j=i+1; j<points.length; j++) {
+        if (points[i] < points[j]) {
+            const tmp = points[i];
+            points[i] = points[j];
+            points[j] = tmp;
+        }
+    }
+    console.log(name[k]);
+}
 
-for (let i=0; i<points.length; i++) {
-    if ( max < points[i]) {
-        max = points[i];
+console.log(points);
+console.log(name);
+
+/** 문제 13 */
+const arr2 = [
+    [1, 1, 1, 1, 1],
+    [1, 1, 1, 1, 1],
+    [1, 1, 1, 1, 1],
+    [1, 1, 1, 1, 1],
+    [1, 1, 1, 1, 1]
+]
+
+for (let i=0; i<arr2.length; i++) {
+    for (let j=0; j<arr2[i].length; j++) {
+        if (i != j) {
+            arr2[i][j] = 0;
+        }
     }
 }
 
-console.log(max);
+console.log(arr2);
+
