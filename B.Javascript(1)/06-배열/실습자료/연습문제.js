@@ -164,3 +164,17 @@ for (let i=0; i<item.length; i++) {
 }
 
 console.log("총 판매가격 : " + totalGold + "원");
+
+/** 문제 12 */
+const name = ["재석", "민영", "종민", "광수", "승기", "새정"];
+const points = [82, 91, 54, 62, 88, 90];
+
+max = points[0];
+
+for (let i=0; i<points.length; i++) {
+    if ( max < points[i]) {
+        max = points[i];
+    }
+}
+
+console.log(max);
