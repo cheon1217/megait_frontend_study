@@ -44,6 +44,9 @@ for (let i = 0; i < a1.length; i++) {
     a2[i] = a1[i];
 }
 
+console.log(a1);
+console.log(a2);
+
 // 베열객체가 갖는 메서드를 활용한 깊은 복사 방법
 // --> const 새로운 변수 = 원본배열.slice();
 const a3 = a1.slice();

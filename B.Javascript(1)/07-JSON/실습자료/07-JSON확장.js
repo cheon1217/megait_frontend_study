@@ -22,6 +22,6 @@ console.log(myJson);
 
 for (let i=0; i<10; i++) {
     const key = "value" + i;
-    myJson[key] = i + 100;
+    myJson[key] = i * 100;
 }
 console.log(myJson);
