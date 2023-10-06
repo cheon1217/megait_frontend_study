@@ -7,4 +7,4 @@ function gugu(level, depth=1) {
     }
 }
 
-gugu(9);
+gugu(8);
