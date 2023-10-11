@@ -1,0 +1,32 @@
+@startuml ex07
+
+skinparam dpi 300
+
+class Protoss {
+    -#name: string
+    -#hp: number
+    -#dps: number
+
+    +<<constructor>> constructor
+    (name: string, hp: number, dps: number)
+
+    +<<get/set>> name()
+    +<<get/set>> hp()
+    +<<get/set>> dps()
+
+    +move(position: string): void
+    +attack(target: string): void
+}
+
+class Zealot {
+    +sword(target: string): void
+}
+
+class Dragon {
+    +fire(target: string): void
+}
+
+Protoss <|-- Zealot
+Protoss <|-- Dragon
+
+@endumls

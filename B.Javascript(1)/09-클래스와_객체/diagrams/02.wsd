@@ -1,0 +1,10 @@
+@startuml ex02
+
+skinparam dpi 300
+
+class Calc {
+    +plus(x: number, y: number): number
+    +minus(x: number, y: number): number
+}
+
+@endumls

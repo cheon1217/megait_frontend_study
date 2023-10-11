@@ -1,0 +1,10 @@
+@startuml ex01
+
+skinparam dpi 300
+
+class MemberClass {
+    +userName: string
+    +email: string
+}
+
+@endumls

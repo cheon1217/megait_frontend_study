@@ -1,0 +1,16 @@
+@startuml ex05
+
+skinparam dpi 300
+
+class UserClass {
+    -#userName: string
+    -#email: string
+
+    +<<constructor>> constructor
+    (userName: string, email: string)
+
+    +<<get/set>> userName()
+    +<<get/set>> email()
+}
+
+@endumls

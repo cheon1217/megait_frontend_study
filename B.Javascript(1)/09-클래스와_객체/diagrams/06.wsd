@@ -1,0 +1,15 @@
+@startuml ex06
+
+skinparam dpi 300
+
+class SayHello {
+    +eng(): void
+}
+
+class SayHelloWorld {
+    +kor(): void
+}
+
+SayHello <|-- SayHelloWorld
+
+@endumls

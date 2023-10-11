@@ -1,0 +1,13 @@
+@startuml ex04
+
+skinparam dpi 300
+
+class MyUnit {
+    +name: string
+    +speed: number
+    +dps: number
+    +<<constructor>> constructor(name: string,
+    speed: number, dps: number)
+}
+
+@endumls

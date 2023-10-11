@@ -1,0 +1,12 @@
+@startuml ex03
+
+skinparam dpi 300
+
+class HelloWorld {
+    +message: string
+    +sayHello(): void
+    +setEng(): void
+    +setKor(): void
+}
+
+@endumls
