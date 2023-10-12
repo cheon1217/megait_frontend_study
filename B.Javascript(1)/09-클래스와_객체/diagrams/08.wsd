@@ -1,8 +1,8 @@
-@startuml ex07
+@startuml ex08
 
 skinparam dpi 300
 
-class Protoss {
+class Terran {
     -#name: string
     -#hp: number
     -#dps: number
@@ -14,15 +14,15 @@ class Protoss {
     +attack(target: string): void
 }
 
-class Zealot {
-    +sword(target: string): void
+class Marine {
+    +attack(target: string): void
 }
 
-class Dragon {
-    +fire(target: string): void
+class Tank {
+    +attack(target: string): void
 }
 
-Protoss <|-- Zealot
-Protoss <|-- Dragon
+Terran <|-- Marine
+Terran <|-- Tank
 
 @endumls

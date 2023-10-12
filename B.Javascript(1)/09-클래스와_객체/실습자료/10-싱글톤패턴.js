@@ -10,7 +10,7 @@ class Calc {
     }
 
     plus(x, y) {
-        return x + y;
+        return x+y;
     }
 
     minus(x, y) {
