@@ -15,9 +15,26 @@
 // 8진법:  0 1 2 3 4 5 6 7 10 11 12 13 14 15 16 17 20 21 22 23 24 25 -> ex) 0o12
 
 // 15로 변환
-
+console.log(parseInt(' 0xF', 16));  
+console.log(parseInt(' F', 16));
+console.log(parseInt('17', 8));
+console.log(parseInt('015', 10));      // 따옴표를 제거하고 015는 15와 동일
+console.log(parseInt(15.99, 10));      // 소수점 이하는 버림
+console.log(parseInt('15.123', 10));   // 콤마(,)는 단순 문자열이므로 콤마 이후는 버려진다.
+console.log(parseInt('FXX123', 16));   // 16진수 기준 정상숫자인 F는 인식되지만 문자열 X 이후로는 버려진다.
+console.log(parseInt('1111', 2));      
+console.log(parseInt('15x3', 10));     // 문자열에서 '*'는 곱하기가 아니라 단순 글자이므로 '*'는 버려진다.
+console.log(parseInt('15e2', 10));     // 문자열 'e' 이후는 버려진다.
+console.log(parseInt('15px', 10));     // 문자열 'px'는 버려진다.
 
 // -15로 변환
-
+console.log(parseInt("-F", 16));
+console.log(parseInt("-0F", 16));
+console.log(parseInt("-0XF", 16));
+console.log(parseInt(-15.1, 10));
+console.log(parseInt("-17", 8));
+console.log(parseInt("-15", 10));
+console.log(parseInt("-1111", 2));
 
 // NaN으로 변환
+console.log(parseInt("Hello", 8));  // 전부 숫자가 아님.
