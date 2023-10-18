@@ -1,21 +1,14 @@
-// participant원소 중에서 completion에 포함되지 않은 하나의 원소를 찾아서 
-// answer에 저장하는 것이 문제 내용.
-// --> participant의 원소를 탐색하여 completion에 속하지 않음을 확인하면 그 순간 반복 중단
 function solution(participant, completion) {
-    var answer = '';
+    var answer = "";
 
-    // 풀이1
     /*for (let i=0; i<participant.length; i++) {
         const p = participant[i];
-        
-        // i번째 원소인 p가 completion에 포함되어 있다면?
         if (!completion.includes(p)) {
             answer = p;
             break;
         }
     }*/
 
-    // 풀이2
     /*participant.some((v, i) => {
         if (!completion.includes(v)) {
             answer = v;
@@ -23,8 +16,7 @@ function solution(participant, completion) {
         }
     });*/
 
-    // 풀이3
-    answer = participant.find((v, i) => !completion.includes(v));
+    answer = participant.find(v => !completion.includes(v));
 
     return answer;
 }
