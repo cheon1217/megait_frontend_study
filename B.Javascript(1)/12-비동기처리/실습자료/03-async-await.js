@@ -16,3 +16,25 @@ function getLuckyResult() {
         }, 1000);
     });
 }
+
+// Promise를 리턴하는 함수를 호출하기 위해 새로운 async 함수를 정의
+// 주로 즉시 실행 함수 형태로 정의
+// -> 익명함수 전체를 괄호()로 묶어버리고 그 뒤에 호출을 위한 ()를 연달아 넣는 형식
+// (async function() {})
+(async () => {
+    let result = null;
+
+    // Promise를 리턴받는 과정을 await 키워드를 적용하여 처리, 예외처리도 적용
+    try {
+        // getLuckyResult에서 resolve()가 호출되면서 전달한 파라미터는 그냥 리턴
+        result = await getLuckyResult();
+        console.log("%s, a=%d, b=%d, c=%d", result.msg, result.a, result.b, result.c);
+    } catch (e) {
+        // getLuckyResult에서 reject()가 호출되면서 전달한 파라미터는 예외객체(e)로 전달
+        console.error("%s, d=%d, e=%d", e.msg, e.d, e.e);
+    } finally {
+        // 성공 실패 여부 상관없이 무조건 실행되는 마무리 처리
+        // 생략 가능
+        console.log("fin :)");
+    }
+}) ();
