@@ -20,7 +20,7 @@ function getLuckyResult() {
 // Promise를 리턴하는 함수를 호출하기 위해 새로운 async 함수를 정의
 // 주로 즉시 실행 함수 형태로 정의
 // -> 익명함수 전체를 괄호()로 묶어버리고 그 뒤에 호출을 위한 ()를 연달아 넣는 형식
-// (async function() {})
+//(async function() {})
 (async () => {
     let result = null;
 
@@ -38,3 +38,14 @@ function getLuckyResult() {
         console.log("fin :)");
     }
 }) ();
+
+// (async () => {
+//     let result = null;
+
+//     try {
+//         result = await getLuckyResult();
+//         console.log("%s, a=%d, b=%d, c=%d", result.msg, result.a, result.b, result.c);
+//     } catch (e) {
+//         console.error("%s, d=%d, e=%d", e.msg, e.d, e.c);
+//     }
+// }) ();
