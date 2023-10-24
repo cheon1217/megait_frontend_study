@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>연습문제2</title>
+        <style>
+            /*버튼의 변하지 않는 기본 특성 */
+            .btn {
+                border: 1px solid #000;
+                padding: 5px 10px;
+                font-size: 16px;
+                transition: all 0.3s;
+            }
+
+            .btn:active {
+                transform: translateY(1px) scale(0.95, 0.95);
+            }
+
+            /* on/off에 따라 다르게 지정될 특성 */
+            .on {
+                background-color: #ff0;
+                color: #f00;
+            }
+
+            .off {
+                background-color: #d5d5d5;
+                color: #00f;
+            }
+        </style>
+    </head>
+    <body>
+        <button id="pushBtn" class="btn off">푸시알림 수신</button>
+
+        <script>
+            const pushBtn = document.querySelector("#pushBtn");
+
+            pushBtn.addEventListener("click", e => {
+                e.currentTarget.classList.toggle("on");
+                e.currentTarget.classList.toggle("off");
+            });
+
+            // pushBtn.addEventListener("mouseover", e => {
+            //     e.currentTarget.classList.toggle("on");
+            //     e.currentTarget.classList.toggle("off");
+            // });
+        </script>
+    </body>
+</html>

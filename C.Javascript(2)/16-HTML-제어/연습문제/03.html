@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>연습문제3</title>
+    </head>
+    <body>
+        <h1>
+            <span id="s_date"></span>
+            ~
+            <span id="e_date"></span>
+        </h1>
+        <!-- <button type="bntton" id="btn1">1일</button>
+        <button type="bntton" id="btn2">7일</button>
+        <button type="bntton" id="btn3">15일</button>
+        <button type="bntton" id="btn4">30일</button>
+        <button type="bntton" id="btn5">60일</button> -->
+
+        <button type="bntton" class="btn" data-term="1">1일</button>
+        <button type="bntton" class="btn" data-term="7">7일</button>
+        <button type="bntton" class="btn" data-term="15">15일</button>
+        <button type="bntton" class="btn" data-term="30">30일</button>
+        <button type="bntton" class="btn" data-term="60">60일</button>
+
+
+        <script>
+            const setTerm = (days) => {
+                const s_date = new Date();
+                const e_date = new Date();
+
+                const dd = s_date.getDate();
+                s_date.setDate(dd - days);
+
+                document.querySelector("#s_date").innerHTML = s_date.getFullYear() + "-" + (s_date.getMonth() + 1) + "-" + s_date.getDate();
+                document.querySelector("#e_date").innerHTML = e_date.getFullYear() + "-" + (e_date.getMonth() + 1) + "-" + e_date.getDate();
+            };
+
+            // document.querySelector("#btn1").addEventListener("click", e => setTerm(1));
+            // document.querySelector("#btn2").addEventListener("click", e => setTerm(7));
+            // document.querySelector("#btn3").addEventListener("click", e => setTerm(15));
+            // document.querySelector("#btn4").addEventListener("click", e => setTerm(30));
+            // document.querySelector("#btn5").addEventListener("click", e => setTerm(60));
+            
+            document.querySelectorAll(".btn").forEach((v, i) => {
+                v.addEventListener("click", e => {
+                    const term = parseInt(e.currentTarget.dataset.term);
+                    setTerm(term);
+                });
+            });
+        </script>
+    </body>
+</html>
