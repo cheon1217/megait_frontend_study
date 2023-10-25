@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Practice01</title>
+    </head>
+    <body>
+        <h1 id="time"></h1>
+
+        <script>
+            setInterval(() => {
+                const date = new Date();
+                let yy = date.getFullYear();
+                let mm = date.getMonth() + 1;
+                let dd = date.getDate();
+                let hh = date.getHours();
+                let mi = date.getMinutes();
+                let ss = date.getSeconds();
+
+                mm = mm < 10 ? "0" + mm : mm;
+                dd = dd < 10 ? "0" + dd : dd;
+                hh = hh < 10 ? "0" + hh : hh;
+                mi = mi < 10 ? "0" + mi : mi;
+                ss = ss < 10 ? "0" + ss : ss;
+
+                document.querySelector("#time").innerHTML = `${yy}-${mm}-${dd} ${hh}:${mi}:${ss}`;
+            });
+        </script>
+    </body>
+</html>
