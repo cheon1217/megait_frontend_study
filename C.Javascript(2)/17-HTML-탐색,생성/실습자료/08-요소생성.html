@@ -4,8 +4,57 @@
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>Document</title>
+        <style>
+            ul {
+                padding: 0;
+                margin: 0;
+                list-style: none;
+            }
+
+            .item {
+                padding: 5px 10px;
+                cursor: pointer;
+                border-bottom: 1px dotted #d5d5d5;
+            }
+
+            .item:first-child {
+                border-top: 1px dotted #d5d5d5;
+            }
+
+            .beforebegin {
+                background-color: #06f2;
+            }
+
+            .afterbegin {
+                background-color: #f602;
+            }
+
+            .beforeend {
+                background-color: #f0f2;
+            }
+
+            .afterend {
+                background-color: #0f02;            }
+        </style>
     </head>
     <body>
-        
+        <input type="text" id="comment" />
+        <button type="button" id="beforebegin">beforebegin</button>
+        <button type="button" id="afterend">afterend</button>
+        <button type="button" id="afterbegin">afterbegin</button>
+        <button type="button" id="beforeend">beforeend</button>
+        <hr />
+        <!-- 동적으로 JS가 생성한 HTML요소가 추가될 위치 -->
+        <!-- beforebegin -->
+        <ul id="list">
+            <!-- afterbegin -->
+
+            <!-- beforeend -->
+        </ul>
+        <!-- afterend -->
+
+        <script>
+
+        </script>
     </body>
 </html>
