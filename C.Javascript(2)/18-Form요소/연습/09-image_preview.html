@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <title>Form Document 9</title>
+        <style>
+            #file-input {
+                display: none;
+            }
+
+            .image-upload label {
+                cursor: pointer;
+            }
+
+            #preview-container {
+                display: flex;
+                flex-wrap: wrap;
+            }
+
+            #preview-container .preview {
+                display: block;
+                width: 100px;
+                height: 100px;
+                border: 1px solid #555;
+                box-sizing: border-box;
+                margin: 10px;
+                object-fit: cover;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="image-upload">
+            <label for="file-input">
+                <img src="/18-Form요소/실습자료/img/upload.jpg"/>
+            </label>
+
+            <input id="file-input" type="file" multiple />
+        </div>
+
+        <div id="preview-container"></div>
+        
+        <script type="text/javascript">
+            document.querySelector("#file-input").addEventListener("change", e => {
+                const previewContainer = document.querySelector("#preview-container");
+
+                previewContainer.innerHTML = "";
+
+                const files = e.currentTarget.files;
+                console.log(files);
+                
+
+                Array.from(files).forEach((v, i) => {
+                    console.log(v);
+
+                    const imgUrl = URL.createObjectURL(v);
+
+                    const imgTag = document.createElement("img");
+                    imgTag.classList.add("preview");
+                    imgTag.setAttribute("src", imgUrl);
+
+                    previewContainer.appendChild(imgTag);
+                });
+            });
+        </script>
+    </body>
+</html>

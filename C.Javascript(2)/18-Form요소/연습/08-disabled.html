@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <title>Form Document 8</title>
+        <style>
+            input[disabled] {
+                background-color: #d5d5d5;
+            }
+        </style>
+    </head>
+    <body>
+        <label for="username">입력하기<input type="checkbox" id="input_enable" /></label>
+        <input type="text" name="input" id="input" disabled />
+        <hr/>
+
+        <div id="result"></div>
+        <script type="text/javascript">
+            document.querySelector("#input_enable").addEventListener("change", e => {
+                document.querySelector("#input").disabled = !e.currentTarget.checked;
+            });
+            document.querySelector("#input").addEventListener("change", e => {
+                document.querySelector("#result").innerHTML = e.currentTarget.value;
+            });
+        </script>
+    </body>
+</html>
