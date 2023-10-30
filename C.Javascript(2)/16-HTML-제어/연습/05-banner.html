@@ -6,19 +6,10 @@
         <title>Document</title>
     </head>
     <body>
-        <a href="https://www.naver.com" id="bannerLink"><img src="img/1.png" id="bannerImg" width="200" /></a>
+        
 
         <script>
-            const imgList = ["img/1.png", "img/2.jpg", "img/3.jpg"];
-            const urlList = ["https://www.naver.com", "https://www.daum.net", "https://www.google.com"]
-
-            let currentIndex = 0;
-
-            setInterval(() => {
-                document.querySelector("#bannerImg").setAttribute("src", imgList[currentIndex]);
-                document.querySelector("#bannerLink").setAttribute("href", urlList[currentIndex]);
-                currentIndex = (currentIndex + 1) % imgList.length;
-            }, 1000);
+            
         </script>
     </body>
 </html>
