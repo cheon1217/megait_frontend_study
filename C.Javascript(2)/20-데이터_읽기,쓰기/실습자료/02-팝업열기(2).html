@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+        <style>
+            .popup {
+                border: 1px solid black;
+            }
+        </style>
+    </head>
+
+    <body>
+        <h1>팝업창 열기</h1>
+
+        <div class="popup">
+            <h2>이 부분은 팝업창 영역입니다.</h2>
+            <hr />
+            <label>
+                <input type="checkbox" id="no-open" value="Y" />
+                15초간 이 창 열지 않음
+            </label>
+            <button type="button" id="close-popup">닫기</button>
+        </div>
+
+        <script type="module">
+            import cookieHelper from "../helper/CookieHelper.js";
+        </script>
+    </body>
+</html>
