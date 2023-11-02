@@ -7,6 +7,19 @@
         <style>
             .popup {
                 border: 1px solid black;
+                background-color: #eee;
+                box-shadow: 0 0 10px #000000;
+                padding: 15px;
+                position: absolute;
+                width: 280px;
+                height: 300px;
+                left: 50%;
+                top: 50%;
+                transform: translate(-50%, -50%);
+                z-index: 99999999;
+
+                /* 기본적으로 팝업을 숨김 */
+                display: none;
             }
         </style>
     </head>
@@ -26,6 +39,25 @@
 
         <script type="module">
             import cookieHelper from "../helper/CookieHelper.js";
+
+            // 쿠키가 저장되어 있지 않다면 레이어 팝업을 화면에 표시함
+            // --> 쿠키가 저장되어 있다면 이 if문은 건너뛰므로 팝업을 표시하지 않을 것이다.
+            if (!getCookie("no-popup")) {
+                document.querySelector(".popup").style.display = "block";
+            }
+
+            /** 닫기 버튼에 대한 클릭 이벤트 */
+            document.querySelector("#close-popup").addEventListener("click", e => {
+                // 일단 팝업을 닫는다.
+                document.querySelector(".popup").style.display = "none";
+
+                // 체크가 되었다면 쿠키를 생성 -> 새로고침 되었을 때 47라인의 코드가 실행되지 않을 것이다.
+                if (document.querySelector("#no-open").checked) {
+                    setCookie("no-popup", "Y", 15);
+                    // 오늘 하루 이 창 열지 않음인 경우 24 시간으로 설정
+                    // setCookie("no-popup", "Y", 60*60*24);
+                }
+            });
         </script>
     </body>
 </html>
