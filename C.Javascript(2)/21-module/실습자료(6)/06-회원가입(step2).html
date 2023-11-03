@@ -117,7 +117,7 @@
         </form>
 
         <!-- 정규표현식 검사 객체를 참조하여 BOM에 추가한다. -->
-        <script src="RegexHelper(step1).js"></script>
+        <script src="RegexHelper(step2).js"></script>
         <script type="text/javascript">
             document.querySelector("#join_form").addEventListener("submit", e => {
                 e.preventDefault();
@@ -125,19 +125,19 @@
                 try {
                     /** 아이디 검사 */
                     regexHelper.value("#user_id", "아이디를 입력하세요.");
-                    regexHelper.value("#user_id", 4,  "아이디는 최소 4글자 이상 입력 가능합니다.");
-                    regexHelper.value("#user_id", 20, "아이디는 최대 20글자까지만 입력 가능합니다.");
+                    regexHelper.minLength("#user_id", 4,  "아이디는 최소 4글자 이상 입력 가능합니다.");
+                    regexHelper.maxLength("#user_id", 20, "아이디는 최대 20글자까지만 입력 가능합니다.");
 
                     regexHelper.value("#user_pw", "비밀번호를 입력하세요.");
-                    regexHelper.value("#user_pw", 4,  "비밀번호는 최소 4글자 이상 입력 가능합니다.");
-                    regexHelper.value("#user_pw", 20, "비밀번호는 최대 20글자까지만 입력 가능합니다.");
+                    regexHelper.minLength("#user_pw", 4,  "비밀번호는 최소 4글자 이상 입력 가능합니다.");
+                    regexHelper.maxLength("#user_pw", 20, "비밀번호는 최대 20글자까지만 입력 가능합니다.");
 
                     regexHelper.value("#user_pw_re", "비밀번호 확인값을 입력하세요.");
-                    regexHelper.value("#user_pw", "#user_pw_re", "비밀번호 확인이 잘못되었습니다.");
+                    regexHelper.compareTo("#user_pw", "#user_pw_re", "비밀번호 확인이 잘못되었습니다.");
 
                     regexHelper.value("#user_name", "이름을 입력하세요.");
-                    regexHelper.value("#user_name", 2,  "이름은 최소 2글자 이상 입력 가능합니다.");
-                    regexHelper.value("#user_name", 10, "이름은 최대 10글자까지만 입력 가능합니다.");
+                    regexHelper.minLength("#user_name", 2,  "이름은 최소 2글자 이상 입력 가능합니다.");
+                    regexHelper.maxLength("#user_name", 10, "이름은 최대 10글자까지만 입력 가능합니다.");
 
                     regexHelper.value("#email", "이메일을 입력하세요.");
 
@@ -146,8 +146,8 @@
                     regexHelper.check("input[name='gender']", "성별을 선택하세요.");
 
                     regexHelper.check("input[name='subject']", "수강과목을 선택하세요.");
-                    regexHelper.checkMin("input[name='gender']",2, "수강과목은 최소 2개 이상 선택해야 합니다.");
-                    regexHelper.checkMax("input[name='gender']",4, "수강과목은 최대 4개까지만 선택 가능합니다.");
+                    regexHelper.checkMin("input[name='subject']", 2, "수강과목은 최소 2개 이상 선택해야 합니다.");
+                    regexHelper.checkMax("input[name='subject']", 4, "수강과목은 최대 4개까지만 선택 가능합니다.");
                 } catch (e) {
                     alert(e.message);
                     console.error(e);
