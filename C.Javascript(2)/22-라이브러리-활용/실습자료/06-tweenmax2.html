@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+        <style>
+            .count-wrapper {
+                width: 480px;
+                margin: auto;
+                display: flex;
+                justify-content: space-around;
+            }
+
+            .counter-item {
+                width: 140px;
+                color: #fff;
+                text-align: center;
+                padding: 15px 0;
+            }
+
+            .counter-item:nth-child(1) {
+                background-color: #F26837;
+            }
+
+            .counter-item:nth-child(2) {
+                background-color: #149FDB;
+            }
+
+            .counter-item:nth-child(3) {
+                background-color: #FDDB20;
+            }
+
+            .counter-item h2 {
+                margin: 10px 0;
+                font-size: 20px;
+            }
+
+            .counter-item .counter-value {
+                font-size: 26px;
+                font-weight: bold;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="count-wrapper">
+            <div class="counter-item">
+                <h2>HTML</h2>
+                <div class="counter-value" data-role="tween-counter" data-step="1" data-direction="up" data-start="0" data-end="90" data-timer="1.2"></div>
+            </div>
+
+            <div class="counter-item">
+                <h2>CSS</h2>
+                <div class="counter-value" data-role="tween-counter" data-step="1" data-direction="up" data-start="0" data-end="85" data-timer="1.6"></div>
+            </div>
+
+            <div class="counter-item">
+                <h2>Javascript</h2>
+                <div class="counter-value" data-role="tween-counter" data-step="1" data-direction="up" data-start="0" data-end="72" data-timer="0.7"></div>
+            </div>
+        </div>
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.1.3/TweenMax.min.js"></script>
+        <script>
+            // data-role="tween-counter" 인 모든 요소를 가져옴
+            const tcounter = document.querySelectorAll("*[data-role='tween-counter']");
+
+            // 가져온 요소들을 배열로 변환하여 반복처리 -> v는 가져온 HTML 태그 중 하나
+            Array.from(tcounter).forEach((v, i) => {
+                // 가져온 객체에 대한 data 속성값들 추출
+                const step = v.dataset.step;
+                const direction = v.dataset.direction;
+                const start = v.dataset.start;
+                const end = v.dataset.end;
+                const timer = v.dataset.timer;
+                console.log(`step=${step}, direction=${direction}, start=${start}, end=${end}, timer=${timer}`);
+
+                // 카운트를 시작할 조건값 명시 --> 시작값
+                const startCounter = { score: start };
+
+                // 카운트를 종료할 조건값을 명시
+                const endCounter = {
+                    // 종료할 값
+                    score: end,
+                    // 정수단위 올림
+                    roundProps: "score",
+                    // 값이 변경될 때 마다의 처리 --> 현재 HTML 태그에 출력
+                    onUpdate: () => v.innerHTML = startCounter.score,
+                };
+                // 카운터 객체를 생성 후 카운터 발동
+                new TimelineMax().to(startCounter, timer, endCounter);
+            });
+        </script>
+    </body>
+</html>
