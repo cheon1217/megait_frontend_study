@@ -8,6 +8,34 @@
     </head>
 
     <body>
-        
+        <fomr id="myform">
+            <label><input type="radio" name="subject" value="html" />HTML</label>
+            <label><input type="radio" name="subject" value="css" />CSS</label>
+            <label><input type="radio" name="subject" value="javascript" />Javascript</label>
+            <button type="button" id="btn">입력값 확인</button>
+        </fomr>
+
+        <hr />
+
+        <p id="console"></p>
+
+        <script type="text/javascript">
+            const radio = document.querySelectorAll("input[name='subject']");
+
+            radio.forEach((v, i) => {
+                v.addEventListener("change" , e => {
+                    document.querySelector("#console").innerHTML = e.currentTarget.value;
+                });
+            });
+
+            document.querySelector("#btn").addEventListener("click", e => {
+                Array.from(radio).some((v, i) => {
+                    if (v.checked) {
+                        document.querySelector("#console").innerHTML = i + "번째 항목 " + v.value + "이(가) 선택됨";
+                        return true;
+                    }
+                });
+            });
+        </script>
     </body>
 </html>
