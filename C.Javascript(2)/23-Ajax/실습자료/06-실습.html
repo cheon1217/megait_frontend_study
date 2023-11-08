@@ -22,20 +22,23 @@
             }
         </style>
     </head>
+
     <body>
         <div id="loading"></div>
-        <h1>Dept List</h1>
+        <h1>우편번호검색</h1>
 
-        <button id="btn" type="button">데이터 가져오기</button>
+        <input type="text" id="keyword" />
+
+        <button type="button" id="btn">데이터 가져오기</button>
 
         <hr />
 
         <table border="1">
             <thead>
                 <tr>
-                    <th>학과번호</th>
-                    <th>학과명</th>
-                    <th>학과위치</th>
+                    <th>우편번호</th>
+                    <th>도로명주소</th>
+                    <th>지번주소</th>
                 </tr>
             </thead>
             <tbody id="list-body"></tbody>
@@ -43,17 +46,38 @@
 
         <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
         <script>
-            let page = 1;
-
-            document.querySelector("#btn").addEventListener("click", async e => {
+            /** 날짜값이 변경된 경우에 대한 이벤트 */
+            document.querySelector("#targetDt").addEventListener("change", async e => {
+                /** 1) 기본 준비 */
+                // 로딩바 표시하기
                 const loading = document.querySelector("#loading");
                 loading.classList.add("active");
 
-                // Ajax 응답 결과를 저장할 JSON
+                const userInput = document.querySelector("#keyword").value.trim();
+
+                if (!keyword) {
+                    alert("검색어를 입력해주세요.");
+                    document.querySelector("#keyword").focus();
+                    return;
+                }
+
+                // 검색결과를 저장할 빈 변수
                 let response = null;
 
+                const url = "http://business.juso.go.kr/addrlink/addrLinkApi.do";
+
+                /** 2) Ajax 요청 */
                 try {
-                    response = await axios.get("http://localhost:3001/department");
+                    response = await axios.get(url, {
+                        params: {
+                            confmKey: "devU01TX0FVVEgyMDIzMTEwODIxMTQwNDExNDI1NjY=",
+                            currentPage: 1,
+                            countPerPage: 50,
+                            keyword: userInput,
+                            resultType: "json",
+                        },
+                    });
+
                     console.log(response.data);
                 } catch (error) {
                     console.error(`[Error Code] ${error.code}`);
@@ -73,41 +97,33 @@
                     loading.classList.remove("active");
                 }
 
+                /** 3) OpenAPI의 응답 결과를 화면에 표시하기 */
+                // 목록이 표시될 <tbody>영역
                 const listBody = document.querySelector("#list-body");
 
-                response.data.forEach((v, i) => {
+                // 이미 출력되고 있는 항목이 있다면 삭제한다.
+                Array.from(listBody.getElementsByTagName("tr")).map((v, i) => {
+                    listBody.removeChild(v);
+                });
+
+                response.data.results.juso.forEach((v, i) => {
                     const tr = document.createElement("tr");
+                    listBody.appendChild(tr);
 
                     const td1 = document.createElement("td");
-                    td1.innerHTML = v.id;
+                    td1.innerHTML = v.zipNo;
+                    tr.appendChild(td1);
 
                     const td2 = document.createElement("td");
-                    td2.innerHTML = v.dname;
+                    td2.innerHTML = v.roadAddr;
+                    tr.appendChild(td2);
 
                     const td3 = document.createElement("td");
-                    td3.innerHTML = v.loc;
-
-                    tr.appendChild(td1);
-                    tr.appendChild(td2);
+                    td3.innerHTML = v.jibunAddr;
                     tr.appendChild(td3);
 
                     listBody.appendChild(tr);
                 });
-
-                /** history 구성하기 */
-                // 백엔드로부터 수신한 데이터를 history객체에 백업하기 위한 준비
-                // 테이블에 표시되고 있는 <tbody>태그의 자식요소들을 통째로 백업한다.
-                const state = { html: listBody.innerHTML };
-                const url = "04-dept_list.html?page=" + ++page;
-
-                // 웹 브라우저의 페이지 이동 히스토리에 가상의 주소를 추가한다.
-                // --> 현재 페이지의 주소를 강제로 변경하는 것과 동일한 처리
-                history.pushState(state, null, url);
-            });
-
-            /** history가 이전 페이지로 되돌아 갈 때 발생하는 이벤트 */
-            window.addEventListener("popstate", e => {
-                document.querySelector("#list-body").innerHTML = e.state?.html || "";
             });
         </script>
     </body>
