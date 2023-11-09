@@ -47,7 +47,7 @@
         <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
         <script>
             /** 날짜값이 변경된 경우에 대한 이벤트 */
-            document.querySelector("#targetDt").addEventListener("change", async e => {
+            document.querySelector("#btn").addEventListener("click", async e => {
                 /** 1) 기본 준비 */
                 // 로딩바 표시하기
                 const loading = document.querySelector("#loading");
@@ -55,7 +55,7 @@
 
                 const userInput = document.querySelector("#keyword").value.trim();
 
-                if (!keyword) {
+                if (!userInput) {
                     alert("검색어를 입력해주세요.");
                     document.querySelector("#keyword").focus();
                     return;
