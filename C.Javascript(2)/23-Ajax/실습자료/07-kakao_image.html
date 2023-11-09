@@ -115,7 +115,7 @@
         <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
         <script>
             /** KAKAO REST KEY */
-            const KAKAO_REST_KEY = "";
+            const KAKAO_REST_KEY = "29de4c4400f61e4731060de9b22befc1";
 
             /** 페이지 번호 */
             let currentPage = 1;
@@ -190,13 +190,13 @@
                 let response = null;
 
                 try {
-                    response = await axios.get("" , {
+                    response = await axios.get("https://dapi.kakao.com/v2/search/image", {
                         params: {
                             query: queryKeyword,
                             page: currentPage,
                         },
                         headers: {
-                            Authorization: ``,
+                            Authorization: `KakaoAK ${KAKAO_REST_KEY}`,
                         },
                     });
 
