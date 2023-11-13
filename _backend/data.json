@@ -5,7 +5,7 @@
   "department": [
     {
       "dname": "컴퓨터공학과",
-      "loc": "10호관",
+      "loc": "1호관",
       "id": 101
     },
     {
@@ -37,6 +37,11 @@
       "dname": "python",
       "loc": "100412",
       "id": 207
+    },
+    {
+      "dname": "자바",
+      "loc": "home",
+      "id": 208
     }
   ],
   "professor": [

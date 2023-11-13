@@ -39,7 +39,28 @@
         <script src="assets/js/include.js"></script>
         <script src="assets/js/UtilHelper.js"></script>
         <script>
+            document.querySelector("#department-form").addEventListener("submit", async e => {
+                e.preventDefault();
 
+                const dname = document.querySelector("#dname").value;
+                const loc = document.querySelector("#loc").value;
+
+                let response = null;
+
+                try {
+                    response = await axios.get("http://localhost:3001/department/", {
+                        dname: dname,
+                        loc: loc,
+                    });
+                    console.log(response.data);
+                } catch (e) {
+                    console.error(e);
+                    alert("요청을 처리하는데 실패했습니다.");
+                    return;
+                }
+
+                window.location = `view.html?id=${response.data.id}`;
+            });
         </script>
     </body>
 </html>
