@@ -1,0 +1,26 @@
+body {
+    padding: 0;
+    margin: 0;
+}
+
+.container {
+    padding: 20px 0;
+    width: 640px;
+    margin: auto;
+}
+
+.container section {
+    margin-bottom: 20px;
+}
+
+.container header h1 {
+    color: #0066ff;
+    font-size: 28px;
+}
+
+.container footer address {
+    display: block;
+    text-align: center;
+    font-size: 12px;
+    color: #555;
+}

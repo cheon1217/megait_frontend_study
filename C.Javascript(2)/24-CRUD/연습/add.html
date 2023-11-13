@@ -11,8 +11,35 @@
         <div class="container">
             <div data-include="inc/header.html"></div>
             <section>
-                
+                <form name="form" id="department-form">
+                    <div class="form-group">
+                        <label for="dname">학과이름 <span class="text-danger">*</span></label>
+                        <div>
+                            <input type="text" name="dname" id="dname" />
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="loc">학과위치</label>
+                        <div>
+                            <input type="text" name="loc" id="loc" />
+                        </div>
+                    </div>
+                    <hr />
+                    <div class="text-center">
+                        <button type="submit">저장하기</button>
+                        <button type="reset">다시작성</button>
+                    </div>
+                </form>
             </section>
+            <!-- footer -->
+            <div data-include="inc/footer.html"></div>
         </div>
+
+        <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+        <script src="assets/js/include.js"></script>
+        <script src="assets/js/UtilHelper.js"></script>
+        <script>
+
+        </script>
     </body>
 </html>
