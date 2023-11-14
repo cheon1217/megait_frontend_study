@@ -1,0 +1,12 @@
+/**
+ * 메인 페이지 스타일
+ */
+
+ @import "./_common.scss";
+
+ .main {
+    background-color: #0000ff55; // 작업하는 동안의 임시 적용
+
+    // 상단영역의 높이보다 여유있게 여백을 줌 (임시)
+    padding-top: 100px;
+ }
