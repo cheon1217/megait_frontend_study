@@ -177,4 +177,34 @@ a {
 .main {
   background-color: rgba(0, 0, 255, 0.3333333333);
   padding-top: 100px;
+}
+
+.title {
+  height: 100vh;
+  width: 100%;
+  background-image: url(../img/parallax1.jpg);
+  background-size: cover;
+  background-position: center center;
+  background-attachment: fixed;
+}
+.title .hello {
+  background-color: #616161;
+  color: #f1f1f1;
+  text-align: center;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  padding: 20px 30px;
+}
+@media only screen and (max-width: 992px) {
+  .title .hello {
+    padding: 30px 50px;
+  }
+}
+.title .hello h1 {
+  font-size: 36px;
+  font-weight: 600;
+  margin-bottom: 15px;
+  white-space: nowrap;
 }/*# sourceMappingURL=index.css.map */
