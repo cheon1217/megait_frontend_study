@@ -415,8 +415,7 @@ a {
   }
 }
 .main .portfolio {
-  background-color: rgba(0, 102, 255, 0.2666666667);
-  height: 150px;
+  background-image: url("../img/parallax2.jpg");
 }
 .main .contact {
   background-color: rgba(255, 0, 255, 0.2666666667);
