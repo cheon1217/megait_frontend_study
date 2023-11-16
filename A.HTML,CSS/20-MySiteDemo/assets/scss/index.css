@@ -175,49 +175,52 @@ a {
   font-size: 18px;
 }
 
-.main .introduce .title {
+.main .title {
   width: 100%;
-  height: 100vh;
-  position: relative;
-  background-image: url("../img/parallax1.jpg");
+  height: 40vh;
+  display: flex;
   background-size: cover;
   background-position: center center;
   background-attachment: fixed;
 }
-.main .introduce .title .hello {
-  background-color: #616161;
-  padding: 30px 50px;
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);
+.main .title .hello {
+  margin: auto;
   color: #f1f1f1;
   text-align: center;
+  text-transform: uppercase;
+  padding: 30px 50px;
 }
 @media only screen and (max-width: 992px) {
-  .main .introduce .title .hello {
+  .main .title .hello {
     padding: 20px 30px;
   }
 }
-.main .introduce .title .hello h1 {
+.main .title .hello h1 {
   font-size: 36px;
   font-weight: 600;
   white-space: nowrap;
   margin-bottom: 10px;
 }
 @media only screen and (max-width: 992px) {
-  .main .introduce .title .hello h1 {
+  .main .title .hello h1 {
     font-size: 26px;
   }
 }
-.main .introduce .title .hello p {
+.main .title .hello p {
   font-size: 20px;
   font-weight: 300;
 }
 @media only screen and (max-width: 992px) {
-  .main .introduce .title .hello p {
+  .main .title .hello p {
     font-size: 16px;
   }
+}
+.main .introduce .title {
+  height: 100vh;
+  background-image: url("../img/parallax1.jpg");
+}
+.main .introduce .title .hello {
+  background-color: #616161;
 }
 .main .introduce .about-me {
   max-width: 1100px;
@@ -414,10 +417,110 @@ a {
     font-size: 16px;
   }
 }
-.main .portfolio {
+.main .portfolio .title {
   background-image: url("../img/parallax2.jpg");
 }
-.main .contact {
-  background-color: rgba(255, 0, 255, 0.2666666667);
-  height: 150px;
+.main .portfolio .content {
+  max-width: 1200px;
+  margin: auto;
+  padding: 60px 20px;
+}
+@media only screen and (max-width: 992px) {
+  .main .portfolio .content {
+    padding: 30px 10px;
+  }
+}
+.main .portfolio .content h1 {
+  text-align: center;
+  font-size: 40px;
+  margin-bottom: 32px;
+  color: #444444;
+}
+@media only screen and (max-width: 992px) {
+  .main .portfolio .content h1 {
+    font-size: 30px;
+    margin-bottom: 24px;
+  }
+}
+.main .portfolio .content p {
+  text-align: center;
+  margin-bottom: 24px;
+  font-size: 20px;
+  color: #616161;
+  font-weight: 300;
+  font-style: italic;
+}
+@media only screen and (max-width: 992px) {
+  .main .portfolio .content p {
+    font-size: 16px;
+    margin-bottom: 20px;
+  }
+}
+.main .portfolio .content .gallery {
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 50px;
+}
+.main .portfolio .content .gallery li {
+  width: 25%;
+  padding: 10px;
+}
+@media only screen and (max-width: 992px) {
+  .main .portfolio .content .gallery li {
+    width: 50%;
+  }
+}
+.main .portfolio .content .gallery li a {
+  display: block;
+  overflow: hidden;
+}
+.main .portfolio .content .gallery li a img {
+  width: 100%;
+  transition: all 0.3s ease-in-out;
+}
+.main .portfolio .content .gallery li a img:hover {
+  transform: scale(1.2, 1.2);
+}
+.main .contact .title {
+  background-image: url("../img/parallax3.jpg");
+}
+.main .contact .content {
+  max-width: 1200px;
+  margin: 30px auto;
+  display: flex;
+  flex-wrap: wrap;
+}
+.main .contact .content .map {
+  width: 50%;
+  height: 40vh;
+  padding: 20px;
+}
+@media only screen and (max-width: 992px) {
+  .main .contact .content .map {
+    width: 100%;
+  }
+}
+.main .contact .content .contact {
+  width: 50%;
+  padding: 20px;
+}
+@media only screen and (max-width: 992px) {
+  .main .contact .content .contact {
+    width: 100%;
+  }
+}
+.main .contact .content .contact ul {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  height: 100%;
+}
+.main .contact .content .contact ul li {
+  font-size: 26px;
+  color: #616161;
+  padding-left: 35px;
+  line-height: 150%;
+}
+.main .contact .content .contact ul li i {
+  margin-right: 15px;
 }/*# sourceMappingURL=index.css.map */

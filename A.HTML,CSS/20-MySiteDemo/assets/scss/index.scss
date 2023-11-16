@@ -55,59 +55,64 @@
    //    }
    // }
 
+   .title {
+      width: 100%;
+      // vh는 viewport의 height를 기준으로 한 %
+      height: 40vh;
+      display: flex;
+
+      background-size: cover;
+      background-position: center center;
+      background-attachment: fixed;
+
+      .hello {
+         // display: flex가 부모에게 적용되어 있다면 margin: auto는 세로축으로 작용
+         margin: auto;
+
+         color: $white;
+         text-align: center;
+         text-transform: uppercase;
+         padding: 30px 50px;
+
+         @include desktop-md {
+            padding: 20px 30px;
+         }
+
+         h1 {
+            font-size: 36px;
+            font-weight: 600;
+            white-space: nowrap;
+            margin-bottom: 10px;
+
+            @include desktop-md() {
+               font-size: 26px;
+            }
+         }
+
+         p {
+            font-size: 20px;
+            font-weight: 300;
+
+            @include desktop-md {
+               font-size: 16px;
+            }
+         }
+      }
+   }
+
    .introduce {
       // 각 영역을 확인하기 위한 임시코드
       // background-color: #ff000022;
       // height: 150px;
 
       .title {
-         width: 100%;
          // vh는 viewport의 height를 기준으로 한 %
          height: 100vh;
-         position: relative;
 
          background-image: url("../img/parallax1.jpg");
-         background-size: cover;
-         background-position: center center;
-         background-attachment: fixed;
 
          .hello {
-            //background-color: #ff000022;
             background-color: $gray;
-            padding: 30px 50px;
-
-            @include desktop-md {
-               padding: 20px 30px;
-            }
-
-            // 부모 영역 안에서 가운데 배치
-            position: absolute;
-            left: 50%;
-            top: 50%;
-            transform: translate(-50%, -50%);
-
-            color: $white;
-            text-align: center;
-
-            h1 {
-               font-size: 36px;
-               font-weight: 600;
-               white-space: nowrap;
-               margin-bottom: 10px;
-
-               @include desktop-md() {
-                  font-size: 26px;
-               }
-            }
-
-            p {
-               font-size: 20px;
-               font-weight: 300;
-
-               @include desktop-md {
-                  font-size: 16px;
-               }
-            }
          }
       }
 
@@ -323,12 +328,130 @@
       // background-color: #0066ff44;
       // height: 150px;
 
-      background-image: url("../img/parallax2.jpg");
+      .title {
+         background-image: url("../img/parallax2.jpg");
+      }
+
+      .content {
+         max-width: 1200px;
+         margin: auto;
+         padding: 60px 20px;
+
+         @include desktop-md {
+            padding: 30px 10px;
+         }
+
+         h1 {
+            text-align: center;
+            font-size: 40px;
+            margin-bottom: 32px;
+            color: $dark-gray;
+
+            @include desktop-md {
+               font-size: 30px;
+               margin-bottom: 24px;
+            }
+         }
+
+         p {
+            text-align: center;
+            margin-bottom: 24px;
+            font-size: 20px;
+            color: $gray;
+            font-weight: 300;
+            font-style: italic;
+
+            @include desktop-md {
+               font-size: 16px;
+               margin-bottom: 20px;
+            }
+         }
+
+         .gallery {
+            display: flex;
+            flex-wrap: wrap;
+            margin-top: 50px;
+
+
+            li {
+               width: 25%;
+               padding: 10px;
+               
+               @include desktop-md {
+                  width: 50%;
+               }
+
+               a {
+                  // border: 3px solid red;
+                  display: block;
+                  overflow: hidden;
+
+                  img {
+                     width: 100%;
+                     transition: all 0.3s ease-in-out;
+
+                     &:hover {
+                        transform: scale(1.2, 1.2);
+                     }
+                  }
+               }
+            }
+         }
+      }
    }
 
    .contact {
       // 각 영역을 확인하기 위한 임시코드
-      background-color: #ff00ff44;
-      height: 150px;
+      // background-color: #ff00ff44;
+      // height: 150px;
+
+      .title {
+         background-image: url("../img/parallax3.jpg");
+      }
+
+      .content {
+         max-width: 1200px;
+         margin: 30px auto;
+         display: flex;
+         flex-wrap: wrap;
+
+         .map {
+            width: 50%;
+            height: 40vh;
+            padding: 20px;
+            
+            @include desktop-md {
+               width: 100%;
+            }
+         }
+
+         .contact {
+            width: 50%;
+            padding: 20px;
+
+            @include desktop-md {
+               width: 100%;
+            }
+
+            ul {
+               display: flex;
+               flex-direction: column;
+               justify-content: space-evenly;
+               height: 100%;
+
+               li {
+                  font-size: 26px;
+                  color: $gray;
+                  padding-left: 35px;
+                  line-height: 150%;
+
+                  i {
+                     margin-right: 15px;
+                  }
+
+               }
+            }
+         }
+      }
    }
 }
