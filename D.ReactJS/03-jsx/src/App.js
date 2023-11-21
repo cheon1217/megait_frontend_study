@@ -16,30 +16,30 @@ const App = () => {
         <hr />
 
 
-        {/* 링크 구성 부분 */}
+        {/* Link 구성 */}
         <nav>
-          <Link to="/Expr">[Expr]</Link>&emsp;&emsp;
-          <Link to="/If1">[If1]</Link>&emsp;&emsp;
-          <Link to="/If2">[If2]</Link>&emsp;&emsp;
-          <Link to="/If3">[If3]</Link>&emsp;&emsp;
-          <Link to="/If4">[If4]</Link>&emsp;&emsp;
-          <Link to="/Loop1">[Loop1]</Link>&emsp;&emsp;
-          <Link to="/Loop2">[Loop2]</Link>&emsp;&emsp;
-          <Link to="/Loop3">[Loop3]</Link>
+          <Link to="/expr">[Expr]</Link>&emsp;&emsp;
+          <Link to="/if1">[If1]</Link>&emsp;&emsp;
+          <Link to="/if2">[If2]</Link>&emsp;&emsp;
+          <Link to="/if3">[If3]</Link>&emsp;&emsp;
+          <Link to="/if4">[If4]</Link>&emsp;&emsp;
+          <Link to="/loop1">[Loop1]</Link>&emsp;&emsp;
+          <Link to="/loop2">[Loop2]</Link>&emsp;&emsp;
+          <Link to="/loop3">[Loop3]</Link>
         </nav>
 
         <br />
 
-        {/* 페이지 역할을 할 컴포넌트 명시하기 */}
+        {/* 각 예제 페이지 Route 적용 */}
         <Routes>
-          <Route path="/Expr" element={<Expr/>} />
-          <Route path="/If1" element={<If1/>} />
-          <Route path="/If2" element={<If2/>} />
-          <Route path="/If3" element={<If3/>} />
-          <Route path="/If4" element={<If4/>} />
-          <Route path="/Loop1" element={<Loop1/>} />
-          <Route path="/Loop2" element={<Loop2/>} />
-          <Route path="/Loop3" element={<Loop3/>} />
+          <Route path="/expr" element={<Expr/>} />
+          <Route path="/if1" element={<If1/>} />
+          <Route path="/if2" element={<If2/>} />
+          <Route path="/if3" element={<If3/>} />
+          <Route path="/if4" element={<If4/>} />
+          <Route path="/loop1" element={<Loop1/>} />
+          <Route path="/loop2" element={<Loop2/>} />
+          <Route path="/loop3" element={<Loop3/>} />
         </Routes>
       </div>
   );
