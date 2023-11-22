@@ -1,15 +1,18 @@
 import React from "react";
-import GradeItem from "../components/GradeItem";
-import Meta from "../Meta";
-import GradeData from "../GradeData";
 
-const GradeTable = () => {
+import { useParams } from "react-router-dom";
+import GradeData from "../GradeData";
+import GradeItem from "./GradeItem";
+
+const Table = () => {
+    const {level} = useParams();
+
+    const selectedData = GradeData.filter((v, i) => level == v.학년);
+    console.log(selectedData);
     return (
         <div>
-            {/* Route 처리를 적용 받는 페이지에서 이 컴포넌트를 중복 사용시 App.js에서의 설정을 덮어쓰게 된다. */}
-            <Meta title="성적표(Demo)" description="성적표 구현 예제" />
+            <h3>{level}학년</h3>
 
-            <h2>성적표</h2>
             <table border="1" cellPadding="7">
                 <thead>
                     <tr align="center">
@@ -25,7 +28,7 @@ const GradeTable = () => {
                     </tr>
                 </thead>
                 <tbody>
-                    {GradeData.map((v,i) => {
+                    {selectedData.map((v,i) => {
                         return (<GradeItem
                             key={i}
                             name={v.이름}
@@ -43,4 +46,4 @@ const GradeTable = () => {
     );
 };
 
-export default GradeTable;
+export default Table;

@@ -3,6 +3,9 @@ import { Link, Routes, Route } from "react-router-dom";
 
 import MyProps from "./pages/MyProps";
 import MyPropTypes from "./pages/MyPropTypes";
+import MyChildren from "./pages/MyChildren";
+import GradeTable from "./pages/GradeTable";
+import Exam from "./pages/Exam";
 
 const App = () => {
   return (
@@ -13,6 +16,7 @@ const App = () => {
         <Link to="/myproptypes">MyPropTypes</Link>&nbsp;|&nbsp;
         <Link to="/mychildren">MyChildren</Link>&nbsp;|&nbsp;
         <Link to="/grade_table">GradeTable(demo)</Link>
+        <Link to="/exam">성적표(연습문제)</Link>
       </nav>
 
       <hr />
@@ -21,8 +25,9 @@ const App = () => {
       <Routes>
         <Route path="/myprops" element={<MyProps/>} />
         <Route path="/myproptypes" element={<MyPropTypes/>} />
-        <Route path="/myprops" element={<MyProps/>} />
-        <Route path="/myprops" element={<MyProps/>} />
+        <Route path="/mychildren" element={<MyChildren/>} />
+        <Route path="/grade_table" element={<GradeTable/>} />
+        <Route path="/exam/*" element={<Exam/>} />
       </Routes>
     </div>
   );
