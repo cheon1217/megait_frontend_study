@@ -1,16 +1,19 @@
 import React from "react";
 
+import { Link, Routes, Route } from "react-router-dom";
+
 const App = () => {
   return (
       <div>
-        <h1>성적표</h1>
+        <h1>Exam</h1>
 
         <nav>
-          <a href="/grade_table/1">1학년</a>&nbsp;|&nbsp;
-          <a href="/grade_table/2">2학년</a>&nbsp;|&nbsp;
-          <a href="/grade_table/3">3학년</a>&nbsp;|&nbsp;
-          <a href="/grade_table/4">4학년</a>
+          <Link to="/exam">성적표(연습문제)</Link>
         </nav>
+
+        <Routes>
+          <Route path="/exam/*" element={<Exam/>}></Route>
+        </Routes>
       </div>
   );
 }
