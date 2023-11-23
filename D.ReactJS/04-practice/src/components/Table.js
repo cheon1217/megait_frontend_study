@@ -7,7 +7,7 @@ import GradeItem from "./GradeItem";
 const Table = () => {
     const {level} = useParams();
 
-    const selectedData = GradeData.map((v, i) => level == v.학년);
+    const selectedData = GradeData.filter((v, i) => level === v.학년);
     console.log(selectedData);
     return (
         <div>

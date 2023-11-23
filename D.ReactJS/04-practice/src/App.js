@@ -1,6 +1,7 @@
 import React from "react";
 
 import { Link, Routes, Route } from "react-router-dom";
+import Exam from "./pages/Exam";
 
 const App = () => {
   return (
