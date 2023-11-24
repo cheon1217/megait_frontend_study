@@ -11,8 +11,8 @@ const News = () => {
           <h2>헤드라인 뉴스</h2>
 
           <nav>
-            <Link to="news_card">카드형</Link>&nbsp;&nbsp;
-            <Link to="news_list">리스트형</Link>
+            <Link to="/news/news_card">카드형</Link>&nbsp;|&nbsp;
+            <Link to="/news/news_list">리스트형</Link>
           </nav>
 
           <Routes>

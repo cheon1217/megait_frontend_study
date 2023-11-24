@@ -28,30 +28,31 @@ const CardContainer = styled.ul`
     justify-content: space-evenly;
 
     .card-item {
-        width: 100%;
         box-sizing: border-box;
         margin: 10px 0;
         padding: 0 5px;
 
+        width: 20%;
+
         /** MobileFirst에 입각한 미디어 쿼리 처리 기반 */
-        // 작은 해상도 (태블릿 PC의 세로 크기/ 스마트폰의 가로크기, 600px이상 해상도)
-        ${mq.minWidth("sm")`
+        // 작은 해상도 (태블릿 PC의 세로 크기/ 스마트폰의 가로크기, 600px이하 해상도)
+        ${mq.maxWidth("sm")`
             width=50%;
         `}
 
-        // 중간 해상도 (태블릿 PC의 가로 크기, 768px이상 해상도)
-        ${mq.minWidth("md")`
+        // 중간 해상도 (태블릿 PC의 가로 크기, 768px이하 해상도)
+        ${mq.maxWidth("md")`
             width=33.3%;
         `}
 
-        // 큰 해상도 (노트북/데스크탑, 992px이상 해상도)
-        ${mq.minWidth("lg")`
+        // 큰 해상도 (노트북/데스크탑, 992px이하 해상도)
+        ${mq.maxWidth("lg")`
             width=25%;
         `}
 
-        // 초 고헤상도 (1200px이상 해상도)
-        ${mq.minWidth("xl")`
-            width=20%;
+        // 초 고헤상도 (1200px이하 해상도)
+        ${mq.maxWidth("xl")`
+            width=25%;
         `}
 
         .list-item-link {

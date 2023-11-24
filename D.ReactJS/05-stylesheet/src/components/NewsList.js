@@ -14,6 +14,10 @@ const ListContainer = styled.ul`
     .list-item {
         border-top: 1px solid #eee;
 
+        &:last-child {
+            border-bottom: 1px solid #eeee;
+        }
+
         .list-item-link {
             box-sizing: border-box;
             display: flex;
@@ -48,7 +52,8 @@ const ListContainer = styled.ul`
                     font-weight: bold;
                     margin: 0;
                     margin-bottom: 10px;
-
+                    
+                    /** 말줄임 처리 */
                     display: -webkit-box;
                     overflow: hidden;
                     text-overflow: ellipsis;
@@ -61,6 +66,7 @@ const ListContainer = styled.ul`
                     font-size: 14px;
                     margin: 0;
                     margin-bottom: 8px;
+                    /** 말줄임 처리 */
                     display: -webkit-box;
                     overflow: hidden;
                     text-overflow: ellipsis;
