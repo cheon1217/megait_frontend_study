@@ -8743,6 +8743,11 @@ style-loader@^3.3.1:
   resolved "https://registry.yarnpkg.com/style-loader/-/style-loader-3.3.3.tgz#bba8daac19930169c0c9c96706749a597ae3acff"
   integrity sha512-53BiGLXAcll9maCYtZi2RCQZKa8NQQai5C4horqKyRmHj9H7QmcUyucrH+4KW/gBQbXM2AsB0axoEcFZPlfPcw==
 
+styled-components-breakpoints@^1.1.1:
+  version "1.1.1"
+  resolved "https://registry.yarnpkg.com/styled-components-breakpoints/-/styled-components-breakpoints-1.1.1.tgz#5c22e98115a917322c6754fbfff91b3bf9048a4d"
+  integrity sha512-0uUqRQtAym7bGwOj7exiT1zePnxB51X3ZAMTJTp/s1ba7QJCRxkgxcOVAoGRKH/woaONCMXvilvztX8dZ1s2PA==
+
 styled-components@^6.1.1:
   version "6.1.1"
   resolved "https://registry.yarnpkg.com/styled-components/-/styled-components-6.1.1.tgz#a5414ada07fb1c17b96a26a05369daa4e2ad55e5"
