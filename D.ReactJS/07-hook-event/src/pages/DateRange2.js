@@ -14,26 +14,26 @@ const setDateValue = (state, action) => {
 
     switch (action) {
         case "DAY7":
-            sdate = day.add(-7, "d").format("YYYY-MM-DD");
+            sdate = day.add(+7, "d").format("YYYY-MM-DD");
             break;
         case "DAY15":
-            sdate = day.add(-15, "d").format("YYYY-MM-DD");
+            sdate = day.add(+15, "d").format("YYYY-MM-DD");
             break;
         case "MONTH1":
-            sdate = day.add(-1, "M").format("YYYY-MM-DD");
+            sdate = day.add(+1, "M").format("YYYY-MM-DD");
             break;
         case "MONTH3":
-            sdate = day.add(-3, "M").format("YYYY-MM-DD");
+            sdate = day.add(+3, "M").format("YYYY-MM-DD");
             break;
         case "MONTH6":
-            sdate = day.add(-6, "M").format("YYYY-MM-DD");
+            sdate = day.add(+6, "M").format("YYYY-MM-DD");
             break;
         default:
             sdate = day.format("YYYY-MM-DD");
             break;
     }
 
-    return { ...state, startDate: sdate};
+    return { ...state, endDate: sdate};
 };
 
 const DateRange2 = () => {

@@ -26,7 +26,7 @@ const MyRef = () => {
             </div>
 
             <div>
-                <label htmlFor="dname">학과위치: </label>
+                <label htmlFor="loc">학과위치: </label>
                 <input type="text" ref={myLoc} id="loc" />
             </div>
 
