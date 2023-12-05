@@ -72,30 +72,124 @@ const PlotContainer = styled.div`
 
 const ChartEx = memo(() => {
     // 그래프 기본 옵션
-    // const defaultOption = {
-    //     responsive: true,
-    //     maintainAspectRatio: false,
-    //     plugins: {
-    //         legend: {
-    //             position: "bottom",
-    //         }
-    //     },
-    // };
+    const defaultOption = {
+        responsive: true,
+        maintainAspectRatio: false,
+        plugins: {
+            legend: {
+                position: "bottom",
+            }
+        },
+    };
 
-    // // 가로 막대 그래프를 위한 옵션 --> 인덱스 축이 y축임을 추가로 저장함
-    // const hgraphOption = cloneDeep(defaultOption);
-    // hgraphOption.indexAxis = "y";
+    // 가로 막대 그래프를 위한 옵션 --> 인덱스 축이 y축임을 추가로 저장함
+    const hgraphOption = cloneDeep(defaultOption);
+    hgraphOption.indexAxis = "y";
 
-    // // 레이더 그래프를 위한 옵션 (다른 그래프와 옵션 공유 불가)
-    // const radarOption = cloneDeep(defaultOption);
+    // 레이더 그래프를 위한 옵션 (다른 그래프와 옵션 공유 불가)
+    const radarOption = cloneDeep(defaultOption);
 
-    // // 파이 그래프를 위한 옵션 (다른 그래프와 옵션 공유 불가)
-    // const pieOption = cloneDeep(defaultOption);
+    // 파이 그래프를 위한 옵션 (다른 그래프와 옵션 공유 불가)
+    const pieOption = cloneDeep(defaultOption);
 
-    // // 가로, 세로 막대 그래프를 위한 데이터 정의
-    // const grade = {
+    // 가로, 세로 막대 그래프를 위한 데이터 정의
+    const grade = {
+        labels: ["철수", "영희", "민수", "수현", "호영"],
+        datasets: [{
+            label: "국어",
+            data: [98, 88, 92, 63, 100],
+            backgroundColor: "rgba(255, 99, 132, 0.5)",
+            border: "rgba(255, 99, 132, 1)",
+            borderWidth: 1
+        }, {
+            label: "영어",
+            data: [82, 90, 70, 60, 50],
+            backgroundColor: "rgba(53, 162, 235, 1)",
+            border: "rgba(53, 162, 235, 1)",
+            borderWidth: 1
+        }, {
+            label: "수학",
+            data: [88, 62, 71, 31, 84],
+            backgroundColor: "rgba(258, 234, 153, 0.5)",
+            border: "rgba(258, 234, 153, 0.5)",
+            borderWidth: 1
+        }]
+    };
 
-    // }
+    // 선 그래프를 위한 데이터 정의
+    const covid19 = {
+        labels: ["06/18", "06/19", "06/20", "06/21", "06/22", "06/23", "06/24"],
+        datasets: [{
+            label: "서울시 확진자",
+            data: [1237, 1108, 719, 2042, 1775, 1580, 1605],
+            backgroundColor: "rgba(255, 99, 132, 0.5)",
+            border: "rgba(255, 99, 132, 1)",
+            borderWidth: 1
+        }, {
+            label: "인천시 확진자",
+            data: [260, 278, 222, 481, 404, 372, 366],
+            backgroundColor: "rgba(53, 162, 235, 0.5)",
+            border: "rgba(53, 162, 235, 1)",
+            borderWidth: 1
+        }]
+    };
+
+    // 레이더 그래프를 위한 데이터 정의
+    const student = {
+        labels: ["컴퓨터활용", "퍼블리싱", "프론트엔드", "백엔드", "데이터베이스"],
+        datasets: [{
+            label: "점수",
+            data: [72, 95, 94, 77, 82],
+            backgroundColor: "rgba(255, 99, 132, 0.2)",
+            border: "rgba(255, 99, 132, 1)",
+            borderWidth: 1
+        }]
+    };
+
+    // 파이 그래프를 위한 데이터 정의
+    const studentPie = {
+        labels: ["컴퓨터활용", "퍼블리싱", "프론트엔드", "백엔드", "데이터베이스"],
+        datasets: [{
+            label: "점수",
+            data: [72, 95, 94, 77, 82],
+            backgroundColor: [
+                "rgba(255, 99, 132, 0.2)",
+                "rgba(54, 162, 235, 0.2)",
+                "rgba(255, 206, 86, 0.2)",
+                "rgba(75, 192, 192, 0.2)",
+                "rgba(153, 102, 255, 0.2)",
+            ],
+            borderColor: [
+                "rgba(255, 99, 132, 1)",
+                "rgba(54, 162, 235, 1)",
+                "rgba(255, 206, 86, 1)",
+                "rgba(75, 192, 192, 1)",
+                "rgba(153, 102, 255, 1)",
+            ],
+            borderWidth: 1
+        }]
+    };
+
+    // 산점도 그래프를 위한 데이터 정의
+    // x축 데이터에 따른 y축의 값을 포인트로 표시한 그래프
+    // x에 따른 y값의 변화 경향을 예측하는데 사용된다.
+    const studentScatter = {
+        // x축 --> 국어점수
+        labels: [98, 88, 92, 63, 100],
+        datasets: [{
+            label: "영어",
+            data: [82, 90, 70, 60, 50],
+            backgroundColor: "rgba(255, 99, 132, 0.2)",
+            border: "rgba(255, 99, 132, 1)",
+            borderWidth: 1
+        }, {
+            label: "수학",
+            data: [88, 62, 71, 31, 84],
+            backgroundColor: "rgba(53, 162, 235, 0.5)",
+            border: "rgba(53, 162, 235, 0.5)",
+            borderWidth: 1
+        }]
+    }
 
     return (
         <div>
@@ -103,10 +197,40 @@ const ChartEx = memo(() => {
 
             <div style={{ display: "flex", flexWrap: "wrap" }}>
                 {/* 세로 막대 그래프 */}
-                {/* <PlotContainer>
+                <PlotContainer>
                     <h3>세로 막대 그래프</h3>
                     <Bar options={defaultOption} data={grade} />
-                </PlotContainer> */}
+                </PlotContainer>
+
+                {/* 가로 막대 그래프 */}
+                <PlotContainer>
+                    <h3>가로 막대 그래프</h3>
+                    <Bar options={hgraphOption} data={grade} />
+                </PlotContainer>
+
+                {/* 선 그래프 */}
+                <PlotContainer>
+                    <h3>선 그래프</h3>
+                    <Line options={defaultOption} data={covid19} />
+                </PlotContainer>
+
+                {/* 레이더 그래프 */}
+                <PlotContainer>
+                    <h3>레이더 그래프</h3>
+                    <Radar options={radarOption} data={student} />
+                </PlotContainer>
+
+                {/* 파이 그래프 */}
+                <PlotContainer>
+                    <h3>파이 그래프</h3>
+                    <Pie options={pieOption} data={studentPie} />
+                </PlotContainer>
+
+                {/* 산점도 그래프 */}
+                <PlotContainer>
+                    <h3>산점도 그래프</h3>
+                    <Scatter options={defaultOption} data={studentScatter} />
+                </PlotContainer>
             </div>
         </div>
     );
