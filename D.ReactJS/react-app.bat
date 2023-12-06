@@ -27,8 +27,13 @@ echo.
 echo ----------------------------------
 echo 3. berry의 모드를 pnp로 변경합니다.
 echo ----------------------------------
-echo $ powershell -Command "(gc .yarnrc.yml) -replace 'node-modules', 'pnp' | Out-File -encoding UTF-8 .yarnrc.yml"
+echo .yarnrc.yml과 package.json 파일을 수정합니다.
 powershell -Command "(gc .yarnrc.yml) -replace 'node-modules', 'pnp' | Out-File -encoding utf8 .yarnrc.yml"
+
+powershell -Command "(gc package.json) -replace 'eslintConfig', 'x-eslintConfig' | Out-File -encoding utf8 package.json"
+
+
+echo ok.
 echo.
 
 echo $ yarn install
@@ -46,14 +51,29 @@ call yarn add eslint-config-react-app -D
 echo.
 
 echo ----------------------------------
-echo 5. 프로젝트를 시작합니다.
+echo 5. git 관련 파일들을 정리합니다.
+echo ----------------------------------
+echo $ rmdir /q /s .git
+rmdir /q /s .git
+
+echo $ del .gitignore
+del .gitignore
+
+echo ok.
+echo.
+
+echo ----------------------------------
+echo 6. 프로젝트를 시작합니다.
 echo ----------------------------------
 echo $ yarn start
 call yarn start
 echo.
 
 echo fin~!! :)
+pause
+goto :eof
 
 :ERR
 echo 프로젝트 이름을 지정하세요.
 echo ex) react-app myproject
+
