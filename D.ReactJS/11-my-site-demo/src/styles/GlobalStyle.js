@@ -7,13 +7,14 @@ import { createGlobalStyle } from "styled-components";
 import reset from "styled-reset";
 // 색상 변수 참조
 import * as colors from "./colors";
+import mq from "./MediaQuery";
 
 /** 전역 스타일 시트를 정의한 객체 */
 const GlobalStyles = createGlobalStyle`
     ${reset}
-
-    * {
-        font-family: 'Noto Sans KR';
+    
+    *:not(i) {
+        font-family: 'Noto Sans KR' !important;
         box-sizing: border-box;
         font-size: 16px;
     }
