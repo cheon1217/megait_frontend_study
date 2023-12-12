@@ -9,6 +9,8 @@ const Department = memo(() => {
     const [loading, setLoading] = useState(false);
     // 화면에 표시할 상태값(ajax 연동 결과로 받아올 json) -> 초기값을 빈 배열로 정의
     const [department, setDepartment] = useState([]);
+    // 수정할 항목에 대한 id값을 지정하기 위한 상태값
+    const [updateId, setUpdateId] = useState(-1);
 
     // QuerySting으로 전달되는 검색 키워드를 받는다.
     const { search } = useLocation();
@@ -78,15 +80,19 @@ const Department = memo(() => {
             let json = null;
 
             try {
-                const response = await axios.get("/department", {
+                const response = await axios.post("/department", {
                     // 입력값을 post 파라미터로 전달
                     dname: dname,
                     loc: loc
                 });
                 json = response.data;
+
+                console.group("데이터 저장 결과");
+                console.log(json);
+                console.groupEnd();
             } catch (e) {
                 console.error(e);
-                alert(`데이터 요청에 실패했습니다.\n${e.message}`);
+                alert(`데이터 저장에 실패했습니다.\n${e.message}`);
                 return;
             } finally {
                 // Ajax 로딩 종료를 알림 --> 함수형 업데이트
@@ -99,6 +105,119 @@ const Department = memo(() => {
             // 폼의 입력값을 리셋한다.
             form.reset();
         })();
+    }, []);
+
+    /** 데이터 삭제 버튼 click 이벤트 */
+    const onDataDeleteClilck = useCallback((e) => {
+        e.preventDefault();
+
+        // 클릭된 자기 자신
+        const current = e.currentTarget;
+        // 클릭된 자신에게 숨어있는 data.id값을 추출
+        const id = parseInt(current.dataset.id);
+        console.log(`삭제 대상의 id값: ${id}`);
+
+        //삭제 요청을 위한 Ajax 처리
+        (async () => {
+            // Ajax 로딩 시작을 알림 --> 함수형 업데이트
+            setLoading(loading => true);
+
+            try {
+                await axios.delete(`/department/${id}`);
+            } catch (e) {
+                console.error(e);
+                alert(`데이터 삭제에 실패했습니다.\n${e.message}`);
+                return;
+            } finally {
+                // Ajax 로딩 종료를 알림 --> 함수형 업데이트
+                setLoading(loading => false);
+            }
+
+            // Ajax 삭제처리가 완료되면 프론트엔드가 가지고 있던
+            // 복사본(department 상태값)에서도 동일한 항목을 찾아 제거해야한다.
+            setDepartment(department => {
+                // 원본 상태값과 비교하여 수정된 항목의 배열 인덱스를 찾는다.
+                const dropId = department.findIndex((v, i) => {
+                    return v.id === id;
+                });
+                console.log(`제거할 대상의 배열 인덱스: ${dropId}`);
+
+                // 상태값이 배열이므로 인덱스 번호가 dropId인 위치에서 1개의 데이터를 제거
+                department.splice(dropId, 1);
+
+                // 수정된 배열을 리턴한다.
+                return department;
+            });
+        })();
+    }, []);
+
+    /** 데이터 수정 버튼 click 이벤트 */
+    const onDataEditClick = useCallback((e) => {
+        e.preventDefault();
+        // 수정할 항목에 대한 인덱스 번호를 상태값으로 설정한다.
+        const current = e.currentTarget;
+        const id = parseInt(current.dataset.id);
+        setUpdateId(id);
+    }, []);
+
+    /** 데이터 수정사항 저장 버튼 Click 이벤트 */
+    const onDataEditSubmit = useCallback((e) => {
+        e.preventDefault();
+
+        // 이벤트가 발생한 <form>요소 취득
+        const current = e.target;
+
+        // <form>요소 내의 <input> 요소들을 name 속성값으로 접근하여 입력값을 얻음
+        const id = current.id.value;
+        const dname = current.dname.value;
+        const loc = current.loc.value;
+
+        // 백엔드에 데이터가 수정되었음을 알린다.
+        (async () => {
+            // Ajax 로딩 시작을 알림
+            setLoading(true);
+
+            // 수정 결과에 대한 json
+            let json = null;
+
+            // Ajax를 통한 데이터 삭제 요청
+            try {
+                const response = await axios.put(`/department/${id}`, {
+                    dname: dname,
+                    loc: loc
+                });
+
+                // 수정 결과에 대한 json을 받음
+                json = response.data;
+
+                console.group("데이터 수정 결과");
+                console.log(json);
+                console.groupEnd();
+            } catch (e) {
+                console.error(e);
+                alert(`데이터 수정에 실패했습니다.\n${e.message}`);
+                return;
+            } finally {
+                // Ajax 로딩 종료를 알림
+                setLoading(false);
+            }
+
+            // 수정 결과로 원본 배열의 원소를 교체한다.
+            setDepartment(department => {
+                // 원본 상태값과 비교하여 수정된 항목의 배열 인덱스를 찾는다.
+                const editId = department.findIndex((v, i) => v.id === json.id);
+                console.log(`제거할 대상의 배열 인덱스: ${editId}`);
+
+                // 상태값이 배열이므로 인덱스 번호가 editId인 위치에서 1개의 데이터를 교체
+                department.splice(editId, 1, json);
+
+                // 수정된 배열을 리턴한다.
+                return department;
+            });
+        })();
+
+        // 상태변수를 되돌린다.
+        setUpdateId(-1);
     }, []);
 
     return (
@@ -124,35 +243,65 @@ const Department = memo(() => {
                 <button type="submit">검색</button>
             </form>
 
-            <table border="1">
-                <thead>
-                    <tr>
-                        <th>학과번호</th>
-                        <th>학과명</th>
-                        <th>학과위치</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {!department.length ? (
+            <form onSubmit={onDataEditSubmit}>
+                <table border="1">
+                    <thead>
                         <tr>
-                            <td colSpan="3" align="center">
-                                검색결과가 없습니다.
-                            </td>
+                            <th>학과번호</th>
+                            <th>학과명</th>
+                            <th>학과위치</th>
+                            <th>수정</th>
+                            <th>삭제</th>
                         </tr>
-                    ) : (
-                        department.map((item, index) => {
-                            return (
-                                <tr key={item.id}>
-                                    {/* 데이터를 텍스트로 출력 */}
-                                    <td>{item.id}</td>
-                                    <td>{item.dname}</td>
-                                    <td>{item.loc}</td>
-                                </tr>
-                            )
-                        })
-                    )}
-                </tbody>
-            </table>
+                    </thead>
+                    <tbody>
+                        {!department.length ? (
+                            <tr>
+                                <td colSpan="5" align="center">
+                                    검색결과가 없습니다.
+                                </td>
+                            </tr>
+                        ) : (
+                            department.map((item, index) => {
+                                // 상태값에 저장되어 있는 수정할 항목의 인덱스에 해당하는 원소라면?
+                                if (item.id === updateId) {
+                                    return (
+                                        <tr key={item.id}>
+                                            {/* 수정을 위한 <input> 요소를 표시 */}
+                                            <td>
+                                                <input type="hidden" name="id" defaultValue={item.id} />
+                                                {item.id}
+                                            </td>
+                                            <td><input type="text" name="dname" defaultValue={item.dname} /></td>
+                                            <td><input type="text" name="loc" defaultValue={item.loc} /></td>
+                                            <td colSpan="2">
+                                                <button type="submit">
+                                                    수정사항 저장
+                                                </button>
+                                            </td>
+                                        </tr>
+                                    )
+                                } else {
+                                    return (
+                                        <tr key={item.id}>
+                                            {/* 데이터를 텍스트로 출력 */}
+                                            <td>{item.id}</td>
+                                            <td>{item.dname}</td>
+                                            <td>{item.loc}</td>
+                                            <td>
+                                                <button type="button" data-id={item.id} onClick={onDataEditClick}>수정하기</button>
+                                            </td>
+                                            <td>
+                                                <button type="button" data-id={item.id} onClick={onDataDeleteClilck}>삭제하기</button>
+                                            </td>
+                                        </tr>
+                                    )
+                                }
+                            })
+                        )}
+                    </tbody>
+                </table>
+            </form>
         </div>
     );
 });
