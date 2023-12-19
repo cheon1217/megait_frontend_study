@@ -5,6 +5,7 @@ import MenuLink from "./components/MenuLink";
 import Counter from "./pages/Counter";
 import Department from "./pages/Department";
 import News from "./pages/News";
+import MovieRank from "./pages/MovieRank";
 
 
 const App = memo(() => {
@@ -15,12 +16,14 @@ const App = memo(() => {
                 <MenuLink to="/counter">Counter</MenuLink>
                 <MenuLink to="/department">Department</MenuLink>
                 <MenuLink to="/news">News</MenuLink>
+                <MenuLink to="/movie_rank">MovieRank</MenuLink>
             </nav>
             <hr />
             <Routes>
                 <Route path="/counter" element={<Counter />} />
                 <Route path="/department" element={<Department />} />
                 <Route path="/news" element={<News />} />
+                <Route path="/movie_rank" element={<MovieRank />} />
             </Routes>
         </div>
     );
