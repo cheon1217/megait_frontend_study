@@ -7,29 +7,68 @@ const FooterContainer = styled.div`
 clear: both;
 overflow: hidden;
 width: 100%;
-border-top: 1px solid #000;
+border-top: 1px solid #f2f2f2;
 margin: 0 auto;
-padding-top: 0 26px;
+padding-top: 26px;
 
+// 1번째
 .footer-top {
-    max-width: 1800px;
+    max-width: 1400px;
     margin: 0 auto;
 
     .area-devided {
         float: left;
         width: calc(100% / 3);
+        margin-bottom: 50px;
+    }
+    
+    .footer-subtitle {
+        color: #000;
+        font-weight: bold;
+        font-size: 14px;
+        margin: 18px 0 11px;
+    }
+
+    p {
+        font-size: 12px;
+        margin-bottom: 10px;
+        color: #999999;
+        margin: 0 0 9px;
+
+        a {
+            text-decoration: underline;
+            
+            &:hover {
+                color: ${colors.BLACK};
+                font-weight: bold;
+            }
+        }
+
+        span {
+            text-decoration: underline;
+        }
+    }
+
+    .address {
+        color: #c8c8c8;
+        font-weight: lighter;
+        font-size: 12px;
+        margin: 19px 0px 0px;
+    }
+
+    a {
+        color: #999999;
+        text-decoration-line: none;
+        cursor: pointer;
     }
 }
 
-
+// 2번째
 .footer-bottom {
     border-top: 1px solid #000;
-    
-    .bottomwrap {
-        width: 1800px;
-        margin: 0 auto;
-        height: 100px;
-    }
+    width: 1400px;
+    margin: 0 auto;
+    height: 100px;
 
     .menu {
         display: flex;
@@ -55,7 +94,7 @@ const Footer = memo(() => {
                     <div>
                         <p className="footer-subtitle">Customer Service</p>
                         <p>상담 서비스</p>
-                        <p>02-123-4567</p>
+                        <p>전화번호 : 02-123-4567</p>
                         <p>상담 가능 시간</p>
                         <p>월~금 : am 11 ~ pm 5 &nbsp;&nbsp;&nbsp; 점심시간 : pm 12 ~ 1</p>
                         <p>(토/일/공휴일 휴무)</p>
@@ -64,9 +103,9 @@ const Footer = memo(() => {
                 <div className="area-devided">
                     <div>
                         <p className="footer-subtitle">Notice+</p>
-                        <p><a href="#">공휴일 배송공지</a></p>
-                        <p><a href="#">택배비 인상</a></p>
-                        <p><a href="#">재입고 시기 재공지</a></p>
+                        <p><a href="#">- 공휴일 배송공지</a></p>
+                        <p><a href="#">- 택배비 인상</a></p>
+                        <p><a href="#">- 재입고 시기 재공지</a></p>
                     </div>
                     <div>
                         <p className="footer-subtitle">About MySite</p>
@@ -78,10 +117,10 @@ const Footer = memo(() => {
                             <a href="#">[사업자정보확인]</a>
                         </p>
                         <p>개인정보보호책임자 : 박재천</p>
-                        <p>"제휴,협찬,유통 문의 : 
-                            <span>firendly1217@naver.com</span>"</p>
+                        <p>제휴,협찬,유통 문의 : 
+                            <span>firendly1217@naver.com</span></p>
                     </div>
-                    <div>
+                    <div className="address">
                         Copyright (c) SHOPPINGMALLS.ALL RIGHTS RESERVED
                     </div>
                 </div>
@@ -126,7 +165,6 @@ const Footer = memo(() => {
             </div>
 
             <div className="footer-bottom">
-                <div className="bottomwrap">
                     <ul className="menu">
                         <li>
                             <a href="#">회사소개</a>
@@ -153,7 +191,6 @@ const Footer = memo(() => {
                             <a href="#">매장찾기</a>
                         </li>                
                     </ul>
-                </div>
             </div>
         </FooterContainer>
     )
