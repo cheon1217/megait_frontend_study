@@ -92,8 +92,8 @@ const DepartmentList = memo(() => {
         const current = e.currentTarget;
         const { id } = current.dataset;
 
-        navigate(`department_edit/${id}`);
-    })
+        navigate(`/department_edit/${id}`);
+    });
 
     return (
         <div>
@@ -131,7 +131,9 @@ const DepartmentList = memo(() => {
                                         return (
                                             <tr key={v.id}>
                                                 <td>{v.id}</td>
-                                                <td>{v.dname}</td>
+                                                <td>
+                                                    <NavLink to={`/department_view/${v.id}`}>{v.dname}</NavLink>
+                                                </td>
                                                 <td>{v.loc}</td>
                                                 <td>
                                                     <button type="button" data-id={v.id} onClick={onDepartmentEditClick}>
@@ -148,7 +150,7 @@ const DepartmentList = memo(() => {
                                     })
                                 ) : (
                                     <tr>
-                                        <td colspan="5" align="center">
+                                        <td colSpan="5" align="center">
                                             검색결과가 없습니다.
                                         </td>
                                     </tr>

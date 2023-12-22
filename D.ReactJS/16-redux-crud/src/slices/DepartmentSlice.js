@@ -39,7 +39,7 @@ export const postItem = createAsyncThunk("DepartmentSlice/postItem", async (payl
     let result = null;
 
     try {
-        const response = await axios.post(`${API_URL}/${payload}`);
+        const response = await axios.post(`${API_URL}`, payload);
         result = response.data;
     } catch (err) {
         result = rejectWithValue(err.response);
@@ -191,16 +191,22 @@ const DepartmentSlice = createSlice({
             return { ...state, loading: true }
         });
 
-        builder.addCase(deleteItem.fulfilled, (state, { payload }) => {
-            // 기존의 상태값을 복사한다.
-            const data = {...state.data};
+        builder.addCase(deleteItem.fulfilled, (state, { meta, payload }) => {
+            let data = null;
 
-            // id값이 일치하는 항목의 배열 인덱스를 찾는다 (v.id는 백엔드가 주는 변수 이름)
-            const targetId = data.findIndex((v, i) => v.id == meta.arg.id);
+            if (Array.isArray(state.data)) {
+                // 기존의 상태값을 복사한다.
+                data = [...state.data];
+                
+                // id값이 일치하는 항목의 배열 인덱스를 찾는다 (v.id는 백엔드가 주는 변수 이름)
+                const targetId = data.findIndex((v, i) => v.id == meta.arg.id);
 
-            // 복사한 데이터에서 해당 인덱스 위치를 삭제한다.
-            data.splice(targetId, 1);
-            
+                // 복사한 데이터에서 해당 인덱스 위치를 삭제한다.
+                data.splice(targetId, 1);
+            } else {
+                data = payload;
+            }
+
             return {
                 data: data, 
                 loading: false,
