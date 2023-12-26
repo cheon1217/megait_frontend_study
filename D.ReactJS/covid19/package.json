@@ -1,5 +1,5 @@
 {
-  "name": "17-redux-pr",
+  "name": "covid19",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -29,7 +29,7 @@
     "styled-components-breakpoints": "^1.1.1",
     "styled-reset": "^4.5.1",
     "web-vitals": "^2.1.0"
-  },
+  },  
   "proxy": "http://localhost:3001",
   "scripts": {
     "start": "react-scripts start | json-server --watch data.json --port 3001",
