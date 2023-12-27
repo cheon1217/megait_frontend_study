@@ -11,7 +11,7 @@ const dataset = {
         },
         photobox: {
             myname: "Frontend Student",
-            img: "/img/avatar_hat.jpg",
+            img: "img/avatar_hat.jpg",
             msg: "Welcome to my website. I am lorem ipsum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
         },
         skill: {
@@ -54,14 +54,14 @@ const dataset = {
             msg1: "Here are some of my latest lorem work ipsum tipsum.",
             msg2: "Click on the images to make them bigger",
             gallery: [
-                {img: "/img/p1.jpg"},
-                {img: "/img/p2.jpg"},
-                {img: "/img/p3.jpg"},
-                {img: "/img/p4.jpg"},
-                {img: "/img/p5.jpg"},
-                {img: "/img/p6.jpg"},
-                {img: "/img/p7.jpg"},
-                {img: "/img/p8.jpg"}
+                {img: "img/p1.jpg"},
+                {img: "img/p2.jpg"},
+                {img: "img/p3.jpg"},
+                {img: "img/p4.jpg"},
+                {img: "img/p5.jpg"},
+                {img: "img/p6.jpg"},
+                {img: "img/p7.jpg"},
+                {img: "img/p8.jpg"}
             ]
         }
     },

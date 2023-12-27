@@ -1,6 +1,7 @@
 {
   "name": "10-foodlog-demo",
   "version": "0.1.0",
+  "homepage": "/portfolio/react/foodblog",
   "private": true,
   "dependencies": {
     "@reduxjs/toolkit": "^2.0.1",

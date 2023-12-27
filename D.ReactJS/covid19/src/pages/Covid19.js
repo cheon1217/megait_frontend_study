@@ -1,22 +1,39 @@
-import React, { memo } from "react";
+import React, { memo, useMemo } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
 import ErrorView from "../components/ErrorView";
+import LineChartView from "../components/LineChartView";
 import MenuLink from "../components/MenuLink";
 import Spinner from "../components/Spinner";
 import dayjs from "dayjs";
 import { getList } from "../slices/Covid19Slice";
-import { useNavigate } from "react-router-dom";
+import styled from "styled-components";
 import { useQueryString } from "../hooks/useQueryString";
+
+const Covid19Container = styled.div`
+    display: flex;
+    flex-direction: column;
+
+    nav {
+        flex: none;
+    }
+
+    .chart {
+        height: 450px;
+    }
+`;
 
 const Covid19 = memo(() => {
     const dispatch = useDispatch();
     const { data, loading, error } = useSelector((state) => state.Covid19Slice);
     
     /** QueryString 변수를 추출 */
-    const { sd, ed } = useQueryString();
+    let { sd, ed, filter } = useQueryString();
+    if (!filter) {
+        filter = "confirmed";
+    }
     console.group("Covid19.js");
-    console.log(`sd=${sd}, ed=${ed}, plus1=${dayjs(ed).add(1, "d").format("YYYY-MM-DD")}`);
+    console.log(`sd=${sd}, ed=${ed}, plus1=${dayjs(ed).add(1, "d").format("YYYY-MM-DD")}, filter=${filter}`);
     console.groupEnd();
     
     React.useEffect(() => {
@@ -27,10 +44,25 @@ const Covid19 = memo(() => {
         }));
     }, [sd, ed]);
 
-    const navigate = useNavigate();
+    const {x, y} = useMemo(() => {
+        let date = null;
+        let value = null;
+        
+        // 모니터링 하는 변수가 존재할 때만 작동해야 한다.
+        if (data && filter) {
+            date = data.map((v, i) => dayjs(v.date).format("YYYY-MM-DD"));
+            console.log(date);
+
+            value = data.map((v, i) => v[filter]);
+            console.log(value);
+
+        }
+
+        return {x: date, y: value};
+    }, [data, filter]);
 
     return (
-        <div>
+        <Covid19Container>
             <Spinner loading={loading} />
 
             <nav>
@@ -46,9 +78,11 @@ const Covid19 = memo(() => {
             {error ? (
                 <ErrorView error={error} />
             ) : (
-                data && JSON.stringify(data)
+                <div className="chart">
+                    <LineChartView x={x} y={y} filter={filter} />
+                </div>
             )}
-        </div>
+        </Covid19Container>
     );
 });
 
