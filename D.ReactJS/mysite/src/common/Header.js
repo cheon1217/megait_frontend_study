@@ -9,7 +9,14 @@ const HeaderContainer = styled.div`
 const Header = memo(() => {
     return (
         <HeaderContainer>
-            <h1>Header</h1>
+            <div className="first-area">
+                <div className="inner">
+                    
+                </div>
+            </div>
+            <div className="second-area">
+                
+            </div>
         </HeaderContainer>
     )
 });

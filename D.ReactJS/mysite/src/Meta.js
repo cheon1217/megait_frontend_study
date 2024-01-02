@@ -6,9 +6,13 @@
 
 /** 패키지 참조 */
 // 기본 참조 객체
-import React from "react";
-// SEO 처리 기능 패키지
+
 import { Helmet, HelmetProvider } from "react-helmet-async";
+
+import React from "react";
+
+// SEO 처리 기능 패키지
+
 // 미리보기 이미지 샘플
 // import sample from "./assets/img/sample.png";
 
@@ -42,6 +46,8 @@ const Meta = (props) => {
                 <link rel="preconnect" href="https://fonts.googleapis.com" />
                 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
                 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap" rel="stylesheet" />
+                {/* font awesome */}
+                <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
             </Helmet>
         </HelmetProvider>
     );

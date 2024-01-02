@@ -2,6 +2,7 @@ import * as colors from "../styles/colors";
 
 import React, { memo } from "react";
 
+import officeImage from "../assets/office.png";
 import styled from "styled-components";
 
 const FooterContainer = styled.div`
@@ -17,6 +18,13 @@ padding-top: 26px;
     max-width: 1400px;
     min-width: 1200px;
     margin: 0 auto;
+    
+    &::after {
+        content: "";
+        display: block;
+        clear: both;
+        float: none;
+    }
 
     .area-devided {
         float: left;
@@ -28,14 +36,30 @@ padding-top: 26px;
         color: ${colors.BLACK};
         font-weight: bolder;
         font-size: 14px;
-        margin: 18px 0 11px;
+        margin: 18px 0 14px;
+    }
+
+    .social-list {
+        display: flex;
+        float: left;
+        
+        a {
+            color: ${colors.BLACK};
+            display: block;
+            font-size: 20px;
+            margin: 0 10px 0 0;
+
+            &:hover {
+                color: ${colors.GRAY_OP};
+            }
+        }
     }
 
     p {
         font-size: 12px;
         margin-bottom: 10px;
         color: #999999;
-        margin: 0 0 9px;
+        margin: 0 0 12px;
 
         a {
             text-decoration: underline;
@@ -63,6 +87,8 @@ padding-top: 26px;
         text-decoration-line: none;
         cursor: pointer;
     }
+
+    
 }
 
 // 2번째
@@ -76,13 +102,48 @@ padding-top: 26px;
         height: 100px;
 
         .navbtn {
-            display: flex;
             float: left;
+            
+            ul {
+                overflow: hidden;
+                line-height: 100px;
+
+                li {
+                    display: inline-block;
+                    padding: 0 20px;
+
+                    a {
+                    text-decoration-line: none;
+                    color: ${colors.BLACK};
+                    font-weight: bold;
+                    font-size: 15px;
+                    }
+                }
+            }
+        }
+        
+        .authbtn {
+            float: right;
+
+            ul {
+                overflow: hidden;
+                line-height: 100px;
+
+                li {
+                    display: inline-block;
+                    padding: 0 20px;
+
+                    a {
+                    text-decoration-line: none;
+                    color: ${colors.DARK_GRAY};
+                    font-weight: bold;
+                    font-size: 13px;
+                    }
+                }
+            }
         }
     }
 
-
-    
 }
 `;
 
@@ -100,7 +161,7 @@ const Footer = memo(() => {
                         <p className="footer-subtitle">Customer Service</p>
                         <p>상담 서비스</p>
                         <p>전화번호 : 02-123-4567</p>
-                        <p>상담 가능 시간</p>
+                        <p style={{marginTop: "15px"}}>상담 가능 시간</p>
                         <p>월~금 : am 11 ~ pm 5 &nbsp;&nbsp;&nbsp; 점심시간 : pm 12 ~ 1</p>
                         <p>(토/일/공휴일 휴무)</p>
                     </div>
@@ -125,7 +186,7 @@ const Footer = memo(() => {
                         <p>제휴,협찬,유통 문의 : 
                             <span>firendly1217@naver.com</span></p>
                     </div>
-                    <div className="address">
+                    <div className="address" style={{color: "#c8c8c8" ,marginTop: "19px"}}>
                         Copyright (c) SHOPPINGMALLS.ALL RIGHTS RESERVED
                     </div>
                 </div>
@@ -136,9 +197,9 @@ const Footer = memo(() => {
                         <p>◎ 스마트한 사이트 - 스마트서치,스마트렌즈</p>
                         <p>◎ 다양한 물류서비스 - 스팀케어부터 클린커버까지</p>
                     </div>
-                    <div>
-                        <a href="#">
-                            <img src="" />
+                    <div style={{margin: "15px 0"}}>
+                        <a href="#" style={{cursor: "default"}}>
+                            <img src={officeImage} alt="true" style={{width: "40%", borderRadius: "20px"}} />
                         </a>
                     </div>
                     <div>
@@ -157,14 +218,14 @@ const Footer = memo(() => {
                             <li>
                                 <a href="#">
                                     <i className="fa-brands fa-square-facebook"></i>
-                                </a>
+                                </a>    
                             </li>
                             <li>
                                 <a href="#">
                                     <i className="fa-brands fa-square-snapchat"></i>
                                 </a>
                             </li>
-                        </ul>
+                        </ul>    
                     </div>
                 </div>
             </div>
@@ -188,6 +249,10 @@ const Footer = memo(() => {
                             <li>
                                 <a href="#">멤버십</a>
                             </li>
+                        </ul>
+                    </div>
+                    <div className="authbtn">
+                        <ul>
                             <li>
                                 <a href="#">고객센터</a>
                             </li>
@@ -197,11 +262,6 @@ const Footer = memo(() => {
                             <li>
                                 <a href="#">매장찾기</a>
                             </li>
-                        </ul>
-                    </div>
-                    <div class="authbtn">
-                        <ul>
-                            
                         </ul>
                     </div>
                 </div>
