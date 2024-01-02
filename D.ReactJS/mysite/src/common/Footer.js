@@ -6,7 +6,6 @@ import styled from "styled-components";
 
 const FooterContainer = styled.div`
 /* background-color: ${colors.LIGHT_GRAY}; */
-clear: both;
 overflow: hidden;
 width: 100%;
 border-top: 1px solid #f2f2f2;
@@ -16,6 +15,7 @@ padding-top: 26px;
 // 1번째
 .footer-top {
     max-width: 1400px;
+    min-width: 1200px;
     margin: 0 auto;
 
     .area-devided {
@@ -68,6 +68,19 @@ padding-top: 26px;
 // 2번째
 .footer-bottom {
     border-top: 1px solid #f2f2f2;
+
+    .bottomwrap {
+        width: 1400px;
+        min-width: 1200px;
+        margin: 0 auto;
+        height: 100px;
+
+        .navbtn {
+            display: flex;
+            float: left;
+        }
+    }
+
 
     
 }
@@ -157,32 +170,41 @@ const Footer = memo(() => {
             </div>
 
             <div className="footer-bottom">
-                <ul className="menu">
-                    <li>
-                        <a href="#">회사소개</a>
-                    </li>
-                    <li>
-                        <a href="#">이용안내</a>
-                    </li>
-                    <li>
-                        <a href="#">이용약관</a>
-                    </li>
-                    <li>
-                        <a href="#">개인정보처리방침</a>
-                    </li>
-                    <li>
-                        <a href="#">멤버십</a>
-                    </li>
-                    <li>
-                        <a href="#">고객센터</a>
-                    </li>
-                    <li>
-                        <a href="#">공지사항</a>
-                    </li>
-                    <li>
-                        <a href="#">매장찾기</a>
-                    </li>                
-                </ul>
+                <div className="bottomwrap">
+                    <div className="navbtn">
+                        <ul>
+                            <li>
+                                <a href="#">회사소개</a>
+                            </li>
+                            <li>
+                                <a href="#">이용안내</a>
+                            </li>
+                            <li>
+                                <a href="#">이용약관</a>
+                            </li>
+                            <li>
+                                <a href="#">개인정보처리방침</a>
+                            </li>
+                            <li>
+                                <a href="#">멤버십</a>
+                            </li>
+                            <li>
+                                <a href="#">고객센터</a>
+                            </li>
+                            <li>
+                                <a href="#">공지사항</a>
+                            </li>
+                            <li>
+                                <a href="#">매장찾기</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="authbtn">
+                        <ul>
+                            
+                        </ul>
+                    </div>
+                </div>
             </div>
         </FooterContainer>
     )

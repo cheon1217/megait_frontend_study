@@ -15,7 +15,7 @@ const FooterContainer = styled.footer`
         padding: 10px 25px;
         font-size: 18px;
         color: ${colors.GRAY};
-        margin-bottom: 10pxs;
+        margin-bottom: 10px;
 
         i {
             margin-right: 10px;
