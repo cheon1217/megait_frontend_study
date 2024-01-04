@@ -119,6 +119,10 @@ const HeaderContainer = styled.div`
                         color: #767676;
                     }
                 }
+
+                .aside {
+                    padding-left: 80px;
+                }
             }
         }
 
@@ -127,7 +131,7 @@ const HeaderContainer = styled.div`
             font-size: 24px;
             line-height: 30px;
             color: #111111;
-            font-weight: 700;
+            font-weight: bold;
 
             a {
                 display: flex;
@@ -149,6 +153,11 @@ const HeaderContainer = styled.div`
             border: 1px solid #000;
             background-color: #fff;
 
+            &.active {
+                display: block;
+                z-index: 10;
+            }
+
             .nav-list {
                 position: relative;
                 height: 400px;
@@ -166,12 +175,18 @@ const HeaderContainer = styled.div`
                         width: 160px;
                         margin-bottom: 14px;
                         padding: 0 20px;
+
+                        :nth-child(10n) {
+                            margin-bottom: 0;
+                        }
                     }
                 }
 
                 li {
                     position: relative;
                 }
+
+                
             }
         }
         
@@ -203,13 +218,6 @@ const HeaderContainer = styled.div`
 `;
 
 const Header = memo(() => {
-    const handleMouseOver = useCallback((e) => {
-        if (e.currentTarget === e.target) {
-            e.target.classList.add("hover");
-        } else {
-            e.currentTarget.classList.remove("hover");
-        }
-    }, []);
 
     return (
         <HeaderContainer>
@@ -259,12 +267,12 @@ const Header = memo(() => {
                             </a>
                         </h2>
                         <a href="#" className="icon"><i className="fa-regular fa-heart"></i></a>
-                        <div className="category" >
+                        <div className="category" data-options="{&quot;type&quot;: &quot;flexible&quot;}" role="navigation" aria-label="Brand category" data-component="[object Object]">
                             <div className="brand-nav">
                                 <ul>
-                                    <li onMouseOver={handleMouseOver}>
-                                        <a href="#">여성</a>
-                                        <div className="dropdown-layer">
+                                    <li>
+                                        <a href="#"id="brand_여성" role="button" aria-controls="dropdown_menu_0" aria-expanded="false" class="">여성</a>
+                                        <div className="dropdown-layer" id="dropdown_menu_0" aria-labelledby="brand_여성">
                                             <div className="nav-list" style={{width: "400px"}}>
                                                 <ul>
                                                     <li><a href="#">신상품</a></li>
@@ -292,8 +300,8 @@ const Header = memo(() => {
                                         </div>
                                     </li>
                                     <li>
-                                        <a href="#">남성</a>
-                                        <div className="dropdown-layer">
+                                        <a href="#"id="brand_남성" role="button" aria-controls="dropdown_menu_1" aria-expanded="false" class="">남성</a>
+                                        <div className="dropdown-layer" id="dropdown_menu_1" aria-labelledby="brand_남성">
 	                                        <div className="nav-list">
                                                 <ul>
                                                     <li><a href="#">신상품</a></li>
@@ -315,8 +323,8 @@ const Header = memo(() => {
                                         </div>
                                     </li>
                                     <li>
-                                        <a href="#">백&amp;슈즈</a>
-                                        <div className="dropdown-layer">
+                                        <a href="#" id="brand_백&amp;슈즈" role="button" aria-controls="dropdown_menu_2" aria-expanded="false" class="">백&amp;슈즈</a>
+                                        <div className="dropdown-layer" id="dropdown_menu_2" aria-labelledby="brand_백&amp;슈즈">
                                             <div className="nav-list">
                                                 <ul>
                                                     <li><a href="#">신상품</a></li>
@@ -331,8 +339,8 @@ const Header = memo(() => {
                                         </div>
                                     </li>
                                     <li>
-                                        <a href="#">아울렛</a>
-                                        <div className="dropdown-layer">
+                                        <a href="#"id="brand_아울렛" role="button" aria-controls="dropdown_menu_3" aria-expanded="false" class="">아울렛</a>
+                                        <div className="dropdown-layer" id="dropdown_menu_3" aria-labelledby="brand_아울렛">
                                             <div className="nav-list">
                                                 <ul>
                                                     <li><a href="#">전체 상품</a></li>
@@ -344,6 +352,42 @@ const Header = memo(() => {
                                         </div>
                                     </li>
                                 </ul>
+                            </div>
+                            {/* ================================= */}
+                            <div class="sub-nav">
+                                <ul>
+                                    <li><a href="#">신상품</a></li>
+                                    <li><a href="#">인기상품</a></li>
+                                </ul>
+                            </div>
+                            <div class="sub-nav">
+                                <ul>
+                                    <li>
+                                        <a href="#" id="promtSpecial" role="button" aria-controls="dropdown_promt_brand" aria-expanded="false">기획전</a>
+                                        <div class="dropdown-layer" id="dropdown_promt_brand" aria-labelledby="promtSpecial">
+                                            <div class="nav-list" style={{width: "400px;"}}>
+                                                <ul>
+                                                    <li><a href="#">[8 seconds] SUPER SALE ACC</a></li>
+                                                    <li><a href="#">[8 seconds] SUPER SALE</a></li>
+                                                    <li><a href="#">[8 seconds] 겨울로 향하는 발걸음</a></li>
+                                                    <li><a href="#">[8 seconds] 설렘 가득한 홀리데이</a></li>
+                                                    <li><a href="#">[8 seconds] 무심한 멋의 그런지룩</a></li>
+                                                    <li><a href="#">[8 seconds] 퀄리티에 충실한 프리미엄 ACC</a></li>
+                                                    <li><a href="#">[8 seconds] 윈터 키워드 잡화점</a></li>
+                                                    <li><a href="#">[8 seconds] 바오 패밀리의 옷장</a></li>
+                                                    <li><a href="#">[8 seconds] 미니멀웨어 룩북</a></li>
+                                                    <li><a href="#">[8 seconds] Vintage Film Roll</a></li>
+                                                </ul>
+                                                <a href="#" class="more">기획전 더보기</a>
+                                            </div>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div className="aside">
+                            <div className="util">
+                                    <a href="#"><i class="fa-solid fa-magnifying-glass"></i></a>
                             </div>
                         </div>
                     </div>
