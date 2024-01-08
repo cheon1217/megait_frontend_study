@@ -2,7 +2,8 @@ import * as colors from "../styles/colors";
 
 import React, { memo, useCallback, useState } from "react";
 
-import banner from "../assets/banner.png";
+import banner from "../assets/8seconds.png";
+import logo from "../assets/logo-white.svg";
 import styled from "styled-components";
 
 const HeaderContainer = styled.div`
@@ -121,7 +122,13 @@ const HeaderContainer = styled.div`
                 }
 
                 .aside {
-                    padding-left: 80px;
+                    margin-left: auto;
+
+                    i {
+                        color: ${colors.BLACK};
+                        font-size: 20px;
+                        font-weight: bold;
+                    }
                 }
             }
         }
@@ -145,50 +152,8 @@ const HeaderContainer = styled.div`
             }
         }
 
-        .dropdown-layer {
-            display: none;
-            position: absolute;
-            left: 0;
-            top: 45px;
-            border: 1px solid #000;
-            background-color: #fff;
-
-            &.active {
-                display: block;
-                z-index: 10;
-            }
-
-            .nav-list {
-                position: relative;
-                height: 400px;
-                padding: 24px 0 40px;
-                box-sizing: border-box;
-
-                ul {
-                    display: flex;
-                    flex-flow: column wrap;
-                    width: 100%;
-                    height: 100%;
-
-                    li {
-                        flex: none;
-                        width: 160px;
-                        margin-bottom: 14px;
-                        padding: 0 20px;
-
-                        :nth-child(10n) {
-                            margin-bottom: 0;
-                        }
-                    }
-                }
-
-                li {
-                    position: relative;
-                }
-
-                
-            }
-        }
+        
+        
         
     }
 
@@ -199,6 +164,7 @@ const HeaderContainer = styled.div`
         [class*="-nav"] > ul {
             display: flex;
             align-items: center;
+            list-style: none;
 
             li {
                 flex: none;
@@ -212,7 +178,60 @@ const HeaderContainer = styled.div`
                     color: #111111;
                 }
             }
-        }        
+        }
+
+        .dropdown-layer {
+            display: none;
+            position: absolute;
+            left: 0;
+            top: 45px;
+            border: 1px solid #000;
+            background-color: #fff;
+
+            
+            &:active {
+                display: block;
+                z-index: 10;
+                
+                .nav-list {
+                    position: relative;
+                    height: 404px;
+                    padding: 24px 0 40px;
+                    box-sizing: border-box;
+    
+                    ul {
+                        display: flex;
+                        flex-flow: column wrap;
+                        width: 100%;
+                        height: 100%;
+    
+                        li{
+                            flex: none;
+                            width: 160px;
+                            margin-bottom: 14px;
+                            padding: 0 20px;
+    
+                            :nth-child(10n) {
+                                margin-bottom: 0;
+                            }
+                        }
+                    }
+                }
+            }
+            
+        }
+
+        .brand-nav {
+            li {
+                position: relative;
+            }
+        }
+        
+        .sub-nav {
+            position: relative;
+            margin-left: 12px;
+            padding-left: 12px;
+        }
     }
     
 `;
@@ -227,19 +246,19 @@ const Header = memo(() => {
             <div className="inner">
                 <h1 className="shp-logo">
                     <a href="#">
-                        <img src="" alt="MYSITE" />
+                        <img src={logo} />
                     </a>
                 </h1>
                 <div className="aside">
                         <div className="shop">
                             <a href="#">
-                                <img src="#" alt="ShoppingMall" />
+                                ShoppingMall
                             </a>
                             <a href="#">
-                                <img src="#" alt="SAMSUNG" />
+                                SamSung
                             </a>
                             <a href="#">
-                                <img src="#" alt="APPLE" />
+                                Apple
                             </a>
                         </div>
                         <div className="util">
@@ -263,18 +282,18 @@ const Header = memo(() => {
                     <div className="inner">
                         <h2 className="brand-title">
                             <a href="#" id="brandLogo">
-                                <img src="" alt="8 seconds" />
+                                <img src={banner} alt="8 seconds" />
                             </a>
                         </h2>
                         <a href="#" className="icon"><i className="fa-regular fa-heart"></i></a>
-                        <div className="category" data-options="{&quot;type&quot;: &quot;flexible&quot;}" role="navigation" aria-label="Brand category" data-component="[object Object]">
+                        <div className="category">
                             <div className="brand-nav">
-                                <ul>
+                                <ul className="gnb">
                                     <li>
-                                        <a href="#"id="brand_여성" role="button" aria-controls="dropdown_menu_0" aria-expanded="false" class="">여성</a>
-                                        <div className="dropdown-layer" id="dropdown_menu_0" aria-labelledby="brand_여성">
+                                        <a href="#" >여성</a>
+                                        <div className="dropdown-layer">
                                             <div className="nav-list" style={{width: "400px"}}>
-                                                <ul>
+                                                <ul className="sub-menu">
                                                     <li><a href="#">신상품</a></li>
                                                     <li><a href="#">인기상품</a></li>
                                                     <li><a href="#">전체 상품</a></li>
@@ -300,8 +319,8 @@ const Header = memo(() => {
                                         </div>
                                     </li>
                                     <li>
-                                        <a href="#"id="brand_남성" role="button" aria-controls="dropdown_menu_1" aria-expanded="false" class="">남성</a>
-                                        <div className="dropdown-layer" id="dropdown_menu_1" aria-labelledby="brand_남성">
+                                        <a href="#">남성</a>
+                                        <div className="dropdown-layer">
 	                                        <div className="nav-list">
                                                 <ul>
                                                     <li><a href="#">신상품</a></li>
@@ -323,8 +342,8 @@ const Header = memo(() => {
                                         </div>
                                     </li>
                                     <li>
-                                        <a href="#" id="brand_백&amp;슈즈" role="button" aria-controls="dropdown_menu_2" aria-expanded="false" class="">백&amp;슈즈</a>
-                                        <div className="dropdown-layer" id="dropdown_menu_2" aria-labelledby="brand_백&amp;슈즈">
+                                        <a href="#">백&amp;슈즈</a>
+                                        <div className="dropdown-layer">
                                             <div className="nav-list">
                                                 <ul>
                                                     <li><a href="#">신상품</a></li>
@@ -339,8 +358,8 @@ const Header = memo(() => {
                                         </div>
                                     </li>
                                     <li>
-                                        <a href="#"id="brand_아울렛" role="button" aria-controls="dropdown_menu_3" aria-expanded="false" class="">아울렛</a>
-                                        <div className="dropdown-layer" id="dropdown_menu_3" aria-labelledby="brand_아울렛">
+                                        <a href="#">아울렛</a>
+                                        <div className="dropdown-layer">
                                             <div className="nav-list">
                                                 <ul>
                                                     <li><a href="#">전체 상품</a></li>
@@ -363,8 +382,8 @@ const Header = memo(() => {
                             <div class="sub-nav">
                                 <ul>
                                     <li>
-                                        <a href="#" id="promtSpecial" role="button" aria-controls="dropdown_promt_brand" aria-expanded="false">기획전</a>
-                                        <div class="dropdown-layer" id="dropdown_promt_brand" aria-labelledby="promtSpecial">
+                                        <a href="#">기획전</a>
+                                        <div class="dropdown-layer">
                                             <div class="nav-list" style={{width: "400px;"}}>
                                                 <ul>
                                                     <li><a href="#">[8 seconds] SUPER SALE ACC</a></li>
