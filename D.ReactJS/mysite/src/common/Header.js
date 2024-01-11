@@ -39,21 +39,21 @@ const HeaderContainer = styled.div`
             position: relative;
             margin-right: 24px;
 
-            a {
-                flex: none;
-                margin-right: 24px;
-            }
-
-            &::after {
+            &:after {
                 position: absolute;
                 right: 0;
                 top: 50%;
                 transform: translateY(-50%);
                 display: inline-block;
-                content: "";
+                content: '';
                 width: 1px;
                 height: 12px;
                 background: #555;
+            }
+
+            a {
+                flex: none;
+                margin-right: 24px;
             }
         }
 
@@ -161,6 +161,10 @@ const HeaderContainer = styled.div`
         display: flex;
         align-items: center;
 
+        [class*="-nav"]>ul>li>a {
+            height: 50px;
+        }
+
         [class*="-nav"] > ul {
             display: flex;
             align-items: center;
@@ -189,36 +193,41 @@ const HeaderContainer = styled.div`
             background-color: #fff;
 
             
-            &:active {
+            &.active {
                 display: block;
                 z-index: 10;
-                
-                .nav-list {
-                    position: relative;
-                    height: 404px;
-                    padding: 24px 0 40px;
-                    box-sizing: border-box;
-    
-                    ul {
-                        display: flex;
-                        flex-flow: column wrap;
-                        width: 100%;
-                        height: 100%;
-    
-                        li{
-                            flex: none;
-                            width: 160px;
-                            margin-bottom: 14px;
-                            padding: 0 20px;
-    
-                            :nth-child(10n) {
-                                margin-bottom: 0;
-                            }
-                        }
+            }
+
+            .nav-list {
+                position: relative;
+                height: 404px;
+                padding: 24px 0 40px;
+                box-sizing: border-box;
+
+                ul {
+                    display: flex;
+                    flex-flow: column wrap;
+                    width: 100%;
+                    height: 100%;
+
+                    li{
+                        flex: none;
+                        width: 160px;
+                        margin-bottom: 12px;
+                        padding: 0 20px;
                     }
                 }
+                
+                .more {
+                    position: absolute;
+                    right: 20px;
+                    bottom: 14px;
+                    padding-right: 14px;
+                    font-size: 12px;
+                    line-height: 16px;
+                    color: #969696;
+                }
             }
-            
         }
 
         .brand-nav {
@@ -231,12 +240,32 @@ const HeaderContainer = styled.div`
             position: relative;
             margin-left: 12px;
             padding-left: 12px;
+
+            &::after {
+                position: absolute;
+                left: 0;
+                top: 50%;
+                transform: translateY(-50%);
+                display: inline-block;
+                content: '';
+                width: 1px;
+                height: 14px;
+                background: #e5e5e5;
+            }
         }
     }
     
 `;
 
 const Header = memo(() => {
+
+    const onGnbMouseOver = useCallback((e) => {
+        e.currentTarget.querySelector(".dropdown-layer").classList.add("active");
+    }, []);
+
+    const onGnbMouseOut = useCallback((e) => {
+        e.currentTarget.querySelector(".dropdown-layer").classList.remove("active");
+    }, []);
 
     return (
         <HeaderContainer>
@@ -289,7 +318,7 @@ const Header = memo(() => {
                         <div className="category">
                             <div className="brand-nav">
                                 <ul className="gnb">
-                                    <li>
+                                    <li onMouseOver={onGnbMouseOver} onMouseOut={onGnbMouseOut}>
                                         <a href="#" >여성</a>
                                         <div className="dropdown-layer">
                                             <div className="nav-list" style={{width: "400px"}}>
@@ -318,10 +347,10 @@ const Header = memo(() => {
                                             </div> 
                                         </div>
                                     </li>
-                                    <li>
+                                    <li onMouseOver={onGnbMouseOver} onMouseOut={onGnbMouseOut}>
                                         <a href="#">남성</a>
                                         <div className="dropdown-layer">
-	                                        <div className="nav-list">
+	                                        <div className="nav-list" style={{width: "400px"}}>
                                                 <ul>
                                                     <li><a href="#">신상품</a></li>
                                                     <li><a href="#">인기상품</a></li>
@@ -341,7 +370,7 @@ const Header = memo(() => {
                                             </div> 
                                         </div>
                                     </li>
-                                    <li>
+                                    <li onMouseOver={onGnbMouseOver} onMouseOut={onGnbMouseOut}>
                                         <a href="#">백&amp;슈즈</a>
                                         <div className="dropdown-layer">
                                             <div className="nav-list">
@@ -357,7 +386,7 @@ const Header = memo(() => {
                                             </div> 
                                         </div>
                                     </li>
-                                    <li>
+                                    <li onMouseOver={onGnbMouseOver} onMouseOut={onGnbMouseOut}>
                                         <a href="#">아울렛</a>
                                         <div className="dropdown-layer">
                                             <div className="nav-list">
@@ -373,18 +402,18 @@ const Header = memo(() => {
                                 </ul>
                             </div>
                             {/* ================================= */}
-                            <div class="sub-nav">
+                            <div className="sub-nav">
                                 <ul>
                                     <li><a href="#">신상품</a></li>
                                     <li><a href="#">인기상품</a></li>
                                 </ul>
                             </div>
-                            <div class="sub-nav">
+                            <div className="sub-nav">
                                 <ul>
-                                    <li>
+                                    <li onMouseOver={onGnbMouseOver} onMouseOut={onGnbMouseOut}>
                                         <a href="#">기획전</a>
-                                        <div class="dropdown-layer">
-                                            <div class="nav-list" style={{width: "400px;"}}>
+                                        <div className="dropdown-layer">
+                                            <div className="nav-list" style={{width: "400px"}}>
                                                 <ul>
                                                     <li><a href="#">[8 seconds] SUPER SALE ACC</a></li>
                                                     <li><a href="#">[8 seconds] SUPER SALE</a></li>
@@ -397,7 +426,7 @@ const Header = memo(() => {
                                                     <li><a href="#">[8 seconds] 미니멀웨어 룩북</a></li>
                                                     <li><a href="#">[8 seconds] Vintage Film Roll</a></li>
                                                 </ul>
-                                                <a href="#" class="more">기획전 더보기</a>
+                                                <a href="#" className="more">기획전 더보기</a>
                                             </div>
                                         </div>
                                     </li>
@@ -406,7 +435,7 @@ const Header = memo(() => {
                         </div>
                         <div className="aside">
                             <div className="util">
-                                    <a href="#"><i class="fa-solid fa-magnifying-glass"></i></a>
+                                    <a href="#"><i className="fa-solid fa-magnifying-glass"></i></a>
                             </div>
                         </div>
                     </div>

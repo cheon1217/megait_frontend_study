@@ -1,8 +1,7 @@
 import React, { memo } from "react";
 
 import styled from "styled-components";
-import w1 from "../../assets/women1.jpg";
-import Woman from "./Woman";
+import w1 from "../../assets/woman1.jpg";
 
 const RankContainer = styled.div`
     h2 {
@@ -41,6 +40,63 @@ const RankContainer = styled.div`
         }
       }
     }
+
+    .good-list {
+      margin-top: 0;
+      display: flex;
+      flex-wrap: wrap;
+      margin: 30px -8px 0 -8px;
+
+      .good-item {
+        flex-basis: 25%;
+        width: 25%;
+        max-width: 25%;
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        flex: none;
+        min-width: 0;
+        margin-bottom: 40px;
+        padding: 0 80px;
+        box-sizing: border-box;
+
+        a {
+          flex: auto;
+          text-decoration: none;
+        }
+
+        .good-rank {
+            .order {
+                font-size: 15px;
+                line-height: 21px;
+                color: #111111;
+                font-weight: 700;
+            }
+        }
+
+        .good-img {
+            &::before {
+              position: absolute;
+              left: 0;
+              top: 0;
+              z-index: 10;
+              width: 100%;
+              height: 100%;
+              content: '';
+              background-color: rgba(0,0,0,.03);
+            }
+
+            position: relative;
+            padding-top: calc(100% * 450/338);
+
+            img {
+              position: absolute;
+              top: 0;
+              height: 100%;
+            }
+        }
+      }
+    }
 `;
 
 const Rank = () => {
@@ -58,7 +114,7 @@ const Rank = () => {
                 <a href="#">
                     <div className="good-rank"><span className="order">1</span></div>
                     <div className="good-img"><img src={w1} /></div>
-                    <div className="go0d-info">
+                    <div className="good-info">
                         <span className="brand">
                              8 seconds</span>
                         <span className="name">
