@@ -99,7 +99,9 @@ const RankContainer = styled.div`
     }
 `;
 
-const Rank = () => {
+const Rank = memo(() => {
+  
+
   return (
         <RankContainer>
             <h2>랭킹</h2>
@@ -109,6 +111,7 @@ const Rank = () => {
               <li><a href="#">액세서리</a></li>
             </ul>
 
+            
             <ul className="good-list">
               <li className="good-item">
                 <a href="#">
@@ -128,6 +131,6 @@ const Rank = () => {
             </ul>
         </RankContainer>
   );
-}
+})
 
 export default Rank;
