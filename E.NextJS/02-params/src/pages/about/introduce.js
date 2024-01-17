@@ -27,6 +27,7 @@ const introduce = memo(() => {
                 <p>{msg}</p>
                 <p>{msg}</p>
                 <p>{msg}</p>
+                <p>{msg}</p>
             </div>
         </div>
     );
