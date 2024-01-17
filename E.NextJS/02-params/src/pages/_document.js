@@ -1,7 +1,9 @@
 import Document, { Head, Html, Main, NextScript } from 'next/document'
 
+import Meta from '@/components/Meta';
+
 // styledComponents를 사용하기 위한 참조
-import { ServerStyleSheet } from 'styled-components'
+import { ServerStyleSheet } from 'styled-components';
 
 class MyClass extends Document {
 

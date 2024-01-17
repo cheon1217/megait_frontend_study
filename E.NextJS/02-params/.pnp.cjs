@@ -42,6 +42,7 @@ const RAW_RUNTIME_STATE =
           ["react", "npm:18.2.0"],\
           ["react-chartjs-2", "virtual:c2d5bc1cdbe602be8733465ad3254808678999130d5ed77cb50c209eb41c78e7fd0f3d8cc9f9987fcbc9679d0193892e91495a4b8f74d94394450b948936ac4d#npm:5.2.0"],\
           ["react-dom", "virtual:c2d5bc1cdbe602be8733465ad3254808678999130d5ed77cb50c209eb41c78e7fd0f3d8cc9f9987fcbc9679d0193892e91495a4b8f74d94394450b948936ac4d#npm:18.2.0"],\
+          ["react-helmet", "virtual:c2d5bc1cdbe602be8733465ad3254808678999130d5ed77cb50c209eb41c78e7fd0f3d8cc9f9987fcbc9679d0193892e91495a4b8f74d94394450b948936ac4d#npm:6.1.0"],\
           ["react-helmet-async", "virtual:c2d5bc1cdbe602be8733465ad3254808678999130d5ed77cb50c209eb41c78e7fd0f3d8cc9f9987fcbc9679d0193892e91495a4b8f74d94394450b948936ac4d#npm:2.0.4"],\
           ["react-intersection-observer", "virtual:c2d5bc1cdbe602be8733465ad3254808678999130d5ed77cb50c209eb41c78e7fd0f3d8cc9f9987fcbc9679d0193892e91495a4b8f74d94394450b948936ac4d#npm:9.5.3"],\
           ["react-loader-spinner", "virtual:c2d5bc1cdbe602be8733465ad3254808678999130d5ed77cb50c209eb41c78e7fd0f3d8cc9f9987fcbc9679d0193892e91495a4b8f74d94394450b948936ac4d#npm:6.1.6"],\
@@ -77,6 +78,7 @@ const RAW_RUNTIME_STATE =
           ["react", "npm:18.2.0"],\
           ["react-chartjs-2", "virtual:c2d5bc1cdbe602be8733465ad3254808678999130d5ed77cb50c209eb41c78e7fd0f3d8cc9f9987fcbc9679d0193892e91495a4b8f74d94394450b948936ac4d#npm:5.2.0"],\
           ["react-dom", "virtual:c2d5bc1cdbe602be8733465ad3254808678999130d5ed77cb50c209eb41c78e7fd0f3d8cc9f9987fcbc9679d0193892e91495a4b8f74d94394450b948936ac4d#npm:18.2.0"],\
+          ["react-helmet", "virtual:c2d5bc1cdbe602be8733465ad3254808678999130d5ed77cb50c209eb41c78e7fd0f3d8cc9f9987fcbc9679d0193892e91495a4b8f74d94394450b948936ac4d#npm:6.1.0"],\
           ["react-helmet-async", "virtual:c2d5bc1cdbe602be8733465ad3254808678999130d5ed77cb50c209eb41c78e7fd0f3d8cc9f9987fcbc9679d0193892e91495a4b8f74d94394450b948936ac4d#npm:2.0.4"],\
           ["react-intersection-observer", "virtual:c2d5bc1cdbe602be8733465ad3254808678999130d5ed77cb50c209eb41c78e7fd0f3d8cc9f9987fcbc9679d0193892e91495a4b8f74d94394450b948936ac4d#npm:9.5.3"],\
           ["react-loader-spinner", "virtual:c2d5bc1cdbe602be8733465ad3254808678999130d5ed77cb50c209eb41c78e7fd0f3d8cc9f9987fcbc9679d0193892e91495a4b8f74d94394450b948936ac4d#npm:6.1.6"],\
@@ -7473,6 +7475,32 @@ const RAW_RUNTIME_STATE =
         "linkType": "HARD"\
       }]\
     ]],\
+    ["react-helmet", [\
+      ["npm:6.1.0", {\
+        "packageLocation": "../../../../../C:/Users/admin/AppData/Local/Yarn/Berry/cache/react-helmet-npm-6.1.0-20fd5447ff-10c0.zip/node_modules/react-helmet/",\
+        "packageDependencies": [\
+          ["react-helmet", "npm:6.1.0"]\
+        ],\
+        "linkType": "SOFT"\
+      }],\
+      ["virtual:c2d5bc1cdbe602be8733465ad3254808678999130d5ed77cb50c209eb41c78e7fd0f3d8cc9f9987fcbc9679d0193892e91495a4b8f74d94394450b948936ac4d#npm:6.1.0", {\
+        "packageLocation": "./.yarn/__virtual__/react-helmet-virtual-a3ba258c60/6/C:/Users/admin/AppData/Local/Yarn/Berry/cache/react-helmet-npm-6.1.0-20fd5447ff-10c0.zip/node_modules/react-helmet/",\
+        "packageDependencies": [\
+          ["react-helmet", "virtual:c2d5bc1cdbe602be8733465ad3254808678999130d5ed77cb50c209eb41c78e7fd0f3d8cc9f9987fcbc9679d0193892e91495a4b8f74d94394450b948936ac4d#npm:6.1.0"],\
+          ["@types/react", null],\
+          ["object-assign", "npm:4.1.1"],\
+          ["prop-types", "npm:15.8.1"],\
+          ["react", "npm:18.2.0"],\
+          ["react-fast-compare", "npm:3.2.2"],\
+          ["react-side-effect", "virtual:a3ba258c60e002444d3d2fac01c211bd1432f91bc9065f6f7e859ac35ccaad5c7e08264efa4e4424b93d1364f4cc45ac1a569317d64494a512642b55da58f981#npm:2.1.2"]\
+        ],\
+        "packagePeers": [\
+          "@types/react",\
+          "react"\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
     ["react-helmet-async", [\
       ["npm:2.0.4", {\
         "packageLocation": "../../../../../C:/Users/admin/AppData/Local/Yarn/Berry/cache/react-helmet-async-npm-2.0.4-cdcbc49056-10c0.zip/node_modules/react-helmet-async/",\
@@ -7646,6 +7674,28 @@ const RAW_RUNTIME_STATE =
           "@types/react-dom",\
           "@types/react",\
           "react-dom",\
+          "react"\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["react-side-effect", [\
+      ["npm:2.1.2", {\
+        "packageLocation": "../../../../../C:/Users/admin/AppData/Local/Yarn/Berry/cache/react-side-effect-npm-2.1.2-c18e5fd8bd-10c0.zip/node_modules/react-side-effect/",\
+        "packageDependencies": [\
+          ["react-side-effect", "npm:2.1.2"]\
+        ],\
+        "linkType": "SOFT"\
+      }],\
+      ["virtual:a3ba258c60e002444d3d2fac01c211bd1432f91bc9065f6f7e859ac35ccaad5c7e08264efa4e4424b93d1364f4cc45ac1a569317d64494a512642b55da58f981#npm:2.1.2", {\
+        "packageLocation": "./.yarn/__virtual__/react-side-effect-virtual-ed16597f95/6/C:/Users/admin/AppData/Local/Yarn/Berry/cache/react-side-effect-npm-2.1.2-c18e5fd8bd-10c0.zip/node_modules/react-side-effect/",\
+        "packageDependencies": [\
+          ["react-side-effect", "virtual:a3ba258c60e002444d3d2fac01c211bd1432f91bc9065f6f7e859ac35ccaad5c7e08264efa4e4424b93d1364f4cc45ac1a569317d64494a512642b55da58f981#npm:2.1.2"],\
+          ["@types/react", null],\
+          ["react", "npm:18.2.0"]\
+        ],\
+        "packagePeers": [\
+          "@types/react",\
           "react"\
         ],\
         "linkType": "HARD"\

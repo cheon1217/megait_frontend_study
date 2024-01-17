@@ -1,8 +1,12 @@
 import React, { memo } from "react";
 
+import Meta from "@/components/Meta";
+
 const world = memo(({num1, num2, from}) => {
     return (
         <div>
+            <Meta title="여기는 world.js 입니다." />
+
             <h1>world</h1>
 
             <h2>여기는 world.js 입니다.</h2>

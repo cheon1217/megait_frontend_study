@@ -1,11 +1,15 @@
 import React, { memo } from "react";
 
+import Meta from "@/components/Meta";
+
 const hello = memo((props) => {
 
     console.log(props);
 
     return (
         <div>
+            <Meta title="여기는 hello.js 입니다." />
+
             <h1>hello</h1>
 
             <h2>여기는 hello.js 입니다.</h2>
