@@ -1,3 +1,7 @@
+/**
+ * Next.js의 코드 구조가 잘못된 경우 보여지는 에러 페이지
+ * JSX상에 에러도 포함됨
+ */
 import React from "react";
 import Meta from "@/components/Meta";
 import styled from "styled-components";

@@ -5,6 +5,7 @@ import { HYDRATE, createWrapper } from "next-redux-wrapper";
 
 // 직접 정의한 Slice 파일 import
 import DepartmentSlice from "@/slices/DepartmentSlice";
+import NewsSlice from "@/slices/NewsSlice";
 
 
 const rootReducer = (state, action) => {
@@ -15,7 +16,8 @@ const rootReducer = (state, action) => {
 
     const reducer = combineReducers({
         // import한 Slice들을 콤마로 구분하여 나열 (JSON아님)
-        DepartmentSlice
+        DepartmentSlice,
+        NewsSlice
     });
 
     return reducer(state, action);

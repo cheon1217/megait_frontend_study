@@ -2,10 +2,10 @@ import { createAsyncThunk } from '@reduxjs/toolkit'
 import axios from 'axios';
 import getDefaultSlice from '@/helper/ReduxHelper';
 
-const API_URL = '/api/department';
+const API_URL = '/api/news';
 
 /** Ajax처리를 위한 미들웨어 함수 정의 */
-export const getList = createAsyncThunk("DepartmentSlice/getList", async (payload, { rejectWithValue }) => {
+export const getList = createAsyncThunk("NewsSlice/getList", async (payload, { rejectWithValue }) => {
     let result = null;
 
     try {
@@ -18,6 +18,6 @@ export const getList = createAsyncThunk("DepartmentSlice/getList", async (payloa
     return result;
 });
 
-const DepartmentSlice = getDefaultSlice("DepartmentSlice", [getList]);
+const NewsSlice = getDefaultSlice("NewsSlice", [getList]);
 
-export default DepartmentSlice.reducer;
+export default NewsSlice.reducer;

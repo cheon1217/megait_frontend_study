@@ -7,7 +7,7 @@ const nextConfig = {
         return [
             {
                 // axios에서의 요청 URL 패턴
-                source: "/:slug*",
+                source: "/api/:slug*",
                 // 백엔드 URL 패턴
                 destination: "http://localhost:3001/:slug*",
             },
