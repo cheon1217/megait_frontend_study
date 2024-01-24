@@ -1,17 +1,27 @@
-import React, { memo } from "react";
+import React, { memo, useCallback, useState } from "react";
 
 import styled from "styled-components";
+
+
 
 const rankingContainer = styled.div`
     
 `;
 
 const ranking = memo(() => {
-    
+    const [product, setProduct] = useState();
+
+    const onProductClick = useCallback((e) => {
+        
+    }, []);
 
     return (
         <div>
-            <h1>[product]</h1>
+            <nav>
+                <link href="/woman"></link>
+                <link href="/man"></link>
+                <link href="/accessory"></link>
+            </nav>
         </div>
     );
 });
