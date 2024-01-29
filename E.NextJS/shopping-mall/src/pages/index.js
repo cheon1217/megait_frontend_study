@@ -112,7 +112,9 @@ const IndexContainer = styled.div`
 
 const Index = memo(() => {
 
-    
+    const mouseClickEvent = useSelector((e) => {
+        
+    })
 
     return (
         <IndexContainer>
