@@ -11,9 +11,7 @@ const rankingContainer = styled.div`
 const ranking = memo(() => {
     const [product, setProduct] = useState();
 
-    const onProductClick = useCallback((e) => {
-
-    }, []);
+    
 
     return (
         <div>
@@ -21,8 +19,8 @@ const ranking = memo(() => {
                 <link href="/woman"></link>
                 <link href="/man"></link>
                 <link href="/accessory"></link>
-                
             </nav>
+
         </div>
     );
 });
